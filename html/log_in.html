@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/log_in.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <main>
+        <section class="boder_right log_in_hero-section">
+        </section>
+        <section>
+            <form action="" method="get" class="login_form">
+                <div class="header_div">
+                    <h1><img src="../assets/logo.svg" alt="u&doc logo">U&DOC<h1>
+                    <h5>Welcome!</h5>
+                    <p><strong>Login to your account</strong></p>
+                </div>
+                <div>
+                    <select name="user_categories" id="user_category" class="input">
+                        <option value="user_category">Select User Category</option>
+                        <option value="patient">Patient</option>
+                        <option value="medical personnel">Medical Personnel</option>
+                    </select>
+                    <input type="text" name="email" id="email_no" placeholder="Email Address or Phone number" class="input">
+                    <input type="password" name="password" id="password" placeholder="Password" class="input">
+                    <p id="password_reset">Forgot your password? <a href="#">Reset Password</a></p>
+                </div>
+                <div class="log_in_div">
+                    <input type="checkbox" name="accept_terms" ><span>I have read and accepted the U&Doc</span> <a href="#" class="red_text">Terms of Use</a> and <a href="#" class="red_text">Privacy Policy.</a>
+                    <button type="submit" class="login_btn">Log In</button>
+                    <div id="inline_parent_p">
+                        <hr>
+                        <p id="inline_p">or</p>
+                    </div>
+                    <button type="submit" id="google_auth_btn">
+                        <img src="../assets/icons_google.svg" alt="Google logo" style="width: 2rem;">
+                        <span id="auth_span"><strong id="auth_span_text">Login with Google</strong></span>
+                    </button>
+                    <p>Dont have an account? <a href="#" id="sign_up"><strong>Sign Up</strong></a></p>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
