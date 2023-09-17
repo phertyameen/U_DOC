@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>medical personnel registration</title>
+    <link rel="stylesheet" href="../css/medical_personel_registration.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <main>
+        <form action="" method="post">
+            <section class="personal_details">
+                <h1>Personal Details</h1>
+                <div class="fullname">
+                    <input type="text" name="firstname" id="firstname" placeholder="First Name" required>
+                    <input type="text" name="lastname" id="lastname" placeholder="Last Name" required>
+                </div>
+                <div>
+                    <label for="gender" id="gender">Gender: </label>
+                    <div class="radio_div">
+                        <input type="radio" name="male_radio" id="male_radio">Male
+                        <input type="radio" name="female_radio" id="female_radio">Female
+                    </div>
+                </div>
+                <div>
+                    <label for="">Date of Birth: </label>
+                    <input type="date" name="date_of_birth" id="date_of_birth" required>
+                </div>
+                <div>
+                    <label for="">Nationality: </label>
+                    <select name="nationality" id="nationality">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </section>
+            <section class="proffesional_details">
+                <h1>Professional Details</h1>
+                <div>
+                    <label for="med_pers">Medical Personnel: </label>
+                    <select name="employ" id="">
+                        <option value="">Select</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div>
+                    <label for="emp_sta:">Employment Status: </label>
+                    <select name="employ" id="">
+                        <option value="">Select</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div>
+                    <label for="org_name">Name of Organization: </label>
+                    <select name="employ" id="">
+                        <option value="">Select</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div><label for="org">Qualification: </label>
+                    <select name="employ" id="">
+                        <option value="">Select</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select></div>
+                <div>
+                    <label for="">Medical Personnel:</label>
+                    <select name="employ" id="employ_status">
+                        <option value="">Select</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </div>
+                <p><strong>Uploads Files: </strong>Upload your most recent qualification certificate and practicing license.</p>
+                <div id="file_placeholder_cont">
+                    <input type="file" placeholder="" id="file_input" required>
+                    <div id="innerfile_placeholders">
+                        <i class="fa-solid fa-cloud-arrow-up" style="font-size: 30px;"></i>
+                        <p id="dextop_display">Drag and drop files or Browse</p>
+                    </div>
+                </div>
+                <p><small><strong>Supported Formats: JPEG, PNG, SVG and PDF. <span>(Max. File size 2MB)</span></strong></small></p>
+            </section>
+            <section class="contact_details">
+                <h1>Contact Details</h1>
+                <div>
+                    <label for="address">Address: </label>
+                    <input type="text" name="line1" id="line1" placeholder="Line 1" required>
+                </div>
+                <div class="odd_input_right">
+                    <input type="text" name="line2" id="line2" placeholder="Line 2" required>
+                </div>
+                <div class="odd_input_right">
+                    <input type="text" name="city_town" id="city_town" placeholder="City/Town" required>
+                </div>
+                <div class="odd_input_right">
+                    <input type="text" name="state_province" id="state_province" placeholder="State/Province" required>
+                </div>
+                <div class="odd_input_right">
+                    <input type="text" name="postal_code" id="postal_code" placeholder="Postal Code" required>
+                </div>
+                <div class="odd_input_right">
+                    <input type="text" name="country" id="country" placeholder="Country" required>
+                </div>
+            </section>
+            <section class="log_in_details">
+                <h1>Login Details</h1>
+                <p>This is the credential you will log in with if your application gets approved.</p>
+                <h3>Phone Number</h3>
+                <input type="number" name="num" id="num" placeholder="(+234)   | " required>
+                <input type="email" name="email" id="email" placeholder="Email Address" required>
+                <input type="password" name="Password" id="Password" placeholder="Password" required>
+            </section>
+            <button id="regiter" type="submit">Register</button>
+        </form>
+    </main>
+</body>
+</html>

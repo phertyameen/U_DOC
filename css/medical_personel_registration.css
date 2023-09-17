@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+    --text_colour: #121212;
+    --primary: #228A5E;
+    --secondary: #D90000;
+    --gray: #898989;
+    --roboto: 'Roboto Condensed', sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
+}
+main{
+    width: 70vw;
+    margin-inline: auto;
+}
+main section{
+    width: 70%;
+    margin-inline: auto;
+    margin-block: 4rem;
+    box-shadow: 2px 2px 2px 2px #f1eded;
+    border-radius: 10px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+input, select{
+    width: 50%;
+    height: 2.2rem;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding-left: 1rem;
+}
+select:hover, input:hover{
+    color: var(--secondary);
+    box-shadow: 2px 2px rgba(161, 162, 161, 0.877);
+    border: 1px solid var(--secondary);
+}
+/* all divs will contain these properties unless otherwise specified */
+div{
+    display: flex;
+    justify-content: space-between;
+}
+section h1{
+    margin-bottom: 1rem;
+    font-family: var(--roboto);
+}
+label{
+    font-weight: 600;
+}
+.personal_details .fullname{
+    display: flex;
+    gap: 1rem;
+}
+.radio_div{
+    width: 40%;
+}
+/* inpute box of type 'file' */
+#file_input{
+    height: 5rem;
+    width: 97%;
+    padding: 1rem;
+}
+#file_placeholder_cont{
+    display: block;
+    position: relative;
+}
+#file_placeholder_cont #innerfile_placeholders{
+    display: block;
+    position: absolute;
+    top: -1px;
+    left: 20rem;
+}
+#innerfile_placeholders i{
+    font-size: 2rem;
+    padding-top: 1rem;
+    color: var(--primary);
+}
+/* contact details specific section */
+.contact_details .odd_input_right{
+    justify-content: end;
+}
+/* login details input */
+.log_in_details input{
+    width: 98%;
+}
+#regiter{
+    background-color: var(--primary);
+    color: #fff;
+    padding: 1rem 3rem;
+    border: none;
+    margin-left: 8rem;
+    margin-bottom: 1rem;
+}
+#regiter:hover{
+    box-shadow: 2px 2px rgba(161, 162, 161, 0.877);
+}
+/* tablet responsiveness */
+@media screen and (min-width: 551px) and (max-width: 979px) {
+    #innerfile_placeholders i{
+        display: none;
+    }
+    #innerfile_placeholders p{
+        display: none;
+    }
+}
+
+
+/* mobile responsiveness */
+@media screen and (max-width: 550px) {
+    main{
+        width: 100%;
+        margin-inline: auto;
+    }
+    main section{
+        width: 100%;
+    }
+    div{
+        display: flex;
+        flex-direction: column;
+    }
+    .radio_div{
+        padding-top: 1rem;
+        flex-direction: row;
+        gap: 1rem;
+    }
+    input, select{
+        width: 70%;
+    }
+    #file_input{
+        height: inherit;
+        width: inherit;
+        padding: 1rem;
+    }
+    /* 'drag and drop' is a property found only on desktop hence not visible on mobile screans*/
+    #innerfile_placeholders i{
+        display: none;
+    }
+    #innerfile_placeholders p{
+        display: none;
+    }
+    .log_in_details input{
+        width: 70%;
+    }
+    .proffesional_details p, .log_in_details p{
+        width: 70%;
+    }
+}

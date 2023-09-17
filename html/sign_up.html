@@ -26,21 +26,21 @@
                 </div>
                 <div>
                     <div name="user_fullname" id="user_fullname">
-                        <input type="text" id="first_name" name="first_name" placeholder="First Name">
-                        <input type="text" id="last_name" name="last_name" placeholder="Last Name">
+                        <input type="text" id="first_name" name="first_name" placeholder="First Name" required>
+                        <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>
                     </div>
-                    <input type="text" name="username" id="username" placeholder="Username" class="input">
+                    <input type="text" name="username" id="username" placeholder="Username" class="input" required>
                     <input type="password" name="password" id="password" placeholder="Create a strong password"
-                        class="input" min="8">
+                        class="input" minlength="8" required>
                     <div id="user_contact">
                         <input type="date" id="date_of_birth" name="date_of_birth">
-                        <input type="number" id="phone_no" name="phone_no" placeholder="(+234) |">
+                        <input type="tel" id="phone_no" name="phone_no" placeholder="(+234) |">
                     </div>
-                    <input type="email" name="email" id="email" placeholder="Email Address" class="input">
-                    <p id="login_page">Have an account? <a href="#">Log In</a></p>
+                    <input type="email" name="email" id="email" placeholder="Email Address" class="input" required>
+                    <p id="login_page">Have an account? <a href="./log_in.html">Log In</a></p>
                 </div>
                 <div class="sign_up_div">
-                    <input type="checkbox" name="accept_terms"><span>I have read and accepted the U&Doc</span> <a
+                    <input type="checkbox" name="accept_terms" required><span>I have read and accepted the U&Doc</span> <a
                         href="#">Terms of Use</a> and <a href="#" class="red_text">Privacy Policy.</a>
                     <button type="submit" class="sign_up_btn">Sign Up</button>
                     <div id="inline_parent_p">
@@ -51,9 +51,15 @@
                         <img src="../assets/icons_google.svg" alt="Google logo" style="width: 2rem;">
                         <span id="auth_span"><strong id="auth_span_text">Sign Up with Google</strong></span>
                     </button>
-                    <p>Dont have an account? <a href="#" id="sign_up"><strong>Sign Up</strong></a></p>
                 </div>
             </form>
+            <div>
+                <p class="p_footer">
+                    <img src="../assets/openmoji_male-doctor.svg" alt="medical personnel icon">
+                    <span>Register as a medical Personnel
+                    <a href=""><a href="./medical_personel_registration.html" id="requiremnt">See Requirements</a></span>
+                </p>
+            </div>
         </section>
     </main>
 
