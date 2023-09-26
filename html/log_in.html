@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Log In</title>
     <link rel="stylesheet" href="../css/log_in.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -21,12 +21,12 @@
                 <div>
                     <select name="user_categories" id="user_category" class="input">
                         <option value="user_category">Select User Category</option>
-                        <option value="patient">Patient</option>
-                        <option value="medical personnel">Medical Personnel</option>
+                        <option value="patient">Regular User</option>
+                        <option value="medical personnel">Medical Professional</option>
                     </select>
-                    <input type="text" name="email" id="email_no" placeholder="Email Address or Phone number" class="input">
-                    <input type="password" name="password" id="password" placeholder="Password" class="input">
-                    <p id="password_reset">Forgot your password? <a href="#">Reset Password</a></p>
+                    <input type="text" name="email" id="email_no" placeholder="Email Address or Phone number" class="input" required>
+                    <input type="password" name="password" id="password" placeholder="Password" class="input" required>
+                    <p id="password_reset">Forgot your password? <a href="./reset_password.html">Reset Password</a></p>
                 </div>
                 <div class="log_in_div">
                     <input type="checkbox" name="accept_terms" ><span>I have read and accepted the U&Doc</span> <a href="#" class="red_text">Terms of Use</a> and <a href="#" class="red_text">Privacy Policy.</a>
@@ -44,5 +44,82 @@
             </form>
         </section>
     </main>
+    <script src="../js/password_pop_ups.js"></script>
+    <!-- <script src="https://apis.google.com/js/platform.js" async defer></script>
+            <script src="../js/index.js"></script> -->
+    <script type="module">
+        //  this function redirects you to user profile page
+        let login_btn = document.querySelector('.login_btn')
+        console.log(login_btn)
+        let patient = document.querySelector('#user_category')
+        console.log(patient.value)
+
+        login_btn.addEventListener('click', (e) => {
+            if(patient.value="Regular User"){
+                e.preventDefault()
+            const redirectUrl = 'patient_home_pg.html'
+
+            window.location.href = redirectUrl;
+            } 
+            // else{
+            //     e.preventDefault()
+            // const redirectUrl = 'patient_home_pg.html'
+
+            // window.location.href = redirectUrl;
+            // }
+        })
+
+       // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAhYR3J4zRZzLoe5J-c5vaIpmT85NW-NQY",
+            authDomain: "uanddoc.firebaseapp.com",
+            projectId: "uanddoc",
+            storageBucket: "uanddoc.appspot.com",
+            messagingSenderId: "928013426861",
+            appId: "1:928013426861:web:aaacbfe9b582b0e336a624",
+            measurementId: "G-84FFBCFFX5"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        const provider = new GoogleAuthProvider()
+
+        provider.setCustomParameters({ prompt: 'select_account' });
+
+
+        const logInButton = document.querySelector('#auth_span_text')
+        // console.log(logInButton);
+
+        const userSignIn = async () => {
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    const user = result.user
+                    console.log(user, 'signed in');
+                    if (result) {
+                        alert('log in sucessful')
+                    }
+                }).catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message
+                })
+        }
+
+
+        const userSignOut = async () => {
+            signOut(auth).then(() => {
+                alert("You have logged out successfully!");
+            }).catch((error) => { })
+        }
+        logInButton.addEventListener('click', userSignIn);
+
+    </script>
 </body>
 </html>

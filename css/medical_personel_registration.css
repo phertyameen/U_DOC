@@ -84,7 +84,7 @@ label{
 .log_in_details input{
     width: 98%;
 }
-#regiter{
+#register{
     background-color: var(--primary);
     color: #fff;
     padding: 1rem 3rem;
@@ -92,7 +92,7 @@ label{
     margin-left: 8rem;
     margin-bottom: 1rem;
 }
-#regiter:hover{
+#register:hover{
     box-shadow: 2px 2px rgba(161, 162, 161, 0.877);
 }
 /* tablet responsiveness */

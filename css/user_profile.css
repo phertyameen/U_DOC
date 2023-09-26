@@ -1,0 +1,75 @@
+*{
+    --text_colour: #121212;
+    --primary: #228A5E;
+    --secondary: #D90000;
+    --gray: #898989;
+    --roboto: 'Roboto Condensed', sans-serif;
+}
+h1, h2, h3, h4, h5{
+    font-family: var(--roboto);
+}
+p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.nav_div img{
+    width: 6rem;
+}
+.nav_div{
+    display: flex !important;
+    gap: 10rem;
+    justify-content: space-evenly !important;
+    background-color: #fbf7f7;
+}
+#notification_icons i{
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    border-radius: 50%;
+    padding: 0.3rem;
+    margin-top: 0.5rem;
+    margin-right: 0.2rem;
+}
+#notification_icons i:last-child{
+    color: white;
+    background-color: #121212;
+    font-size: 2rem;
+    padding: 0.7rem;
+    border: none;
+}
+/* This is a main section */
+.parent_main{
+    display: flex;
+    gap: 4rem;
+}
+.parent_main div{
+    width: 40%;
+}
+.parent_main div img{
+    padding-block: 1rem;
+}
+.profile_div{
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.3rem;
+    border-radius: 5px;
+}
+.user_values{
+    font-weight: 600;
+}
+.edit_profle_div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+}
+.edit_profle_div button{
+    height: 2.5rem;
+    width: 90%;
+    margin-inline: auto;
+    border: 1px solid #898989;
+    border-radius: 5px;
+    background-color: #fff;
+    color: var(--primary);
+}

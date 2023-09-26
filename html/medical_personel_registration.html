@@ -114,8 +114,20 @@
                 <input type="email" name="email" id="email" placeholder="Email Address" required>
                 <input type="password" name="Password" id="Password" placeholder="Password" required>
             </section>
-            <button id="regiter" type="submit">Register</button>
+            <button id="register" type="submit">Register</button>
         </form>
     </main>
+    <script>
+
+        let register_btn = document.querySelector('register')
+    console.log(register_btn)
+
+        register_btn.addEventListener('click', (e) => {
+                e.preventDefault()
+            const redirectUrl = 'patient_home_pg.html'
+
+            window.location.href = redirectUrl;
+        })
+    </script>
 </body>
 </html>

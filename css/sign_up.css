@@ -49,6 +49,9 @@ form #user_fullname, #user_contact{
     display: flex;
     justify-content: space-between;
 }
+form #user_fullname input:hover, #user_contact input:hover{
+    box-shadow: 2px 2px rgba(161, 162, 161, 0.877);
+}
 #user_contact #login_page{
     text-align: center;
 }
