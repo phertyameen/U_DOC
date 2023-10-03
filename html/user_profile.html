@@ -1,72 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/user_profile.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile page</title>
+  <link rel="stylesheet" href="../css/user_profile.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.min.css">
 </head>
+
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg bg-light">
-            <div class="container-fluid nav_div px-5">
-              <img src="../assets/u_and_doc_logo.png" alt="">
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarScroll">
-                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#how_it_works">How it works</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#our_service" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Our Services
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">About Us</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">Blog</a>
-                  </li>
-                </ul>
-                <div class="d-flex gap-2">
-                    <div id="notification_icons">
-                        <i class="fa-solid fa-message"></i>
-                        <i class="fa-solid fa-bell"></i>
-                        <i class="fa-solid fa-user-large"></i>
-                    </div>
-                  <button class="btn btn-success px-2 py-2" type="submit">Book a Consultation</button>
-                </div>
-              </div>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid nav_div px-5">
+        <img src="../assets/u_and_doc_logo.png" alt="U and Doc logo">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+          aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+          <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#how_it_works">How it works</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#our_service" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Our Services
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Consultation</a></li>
+                <li><a class="dropdown-item" href="#">Medication</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">store</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Blog</a>
+            </li>
+          </ul>
+          <div class="d-flex gap-2">
+            <div id="notification_icons">
+              <i class="fa-solid fa-message"></i>
+              <i class="fa-solid fa-bell"></i>
             </div>
-          </nav>
-    </header>
-    <main class="parent_main">
-        <div class="profile_div">
-            <img src="../assets/Ellipse 20.svg" alt="">
-            <p><span>Name: </span><span class="user_values">Martha-White</span></p>
-            <p><span>Username: </span><span class="user_values">MarthaGurl123</span></p>
-            <p><span>Email Address: </span><span class="user_values">Marthagurls@tmail.com</span></p>
-            <p><span>Subscription Pla: </span><span class="user_values">Silver</span></p>
+            <div id="nav_profile_img">
+              <img id="nav-profile-image" src="../assets/Fatima_Aminu_Baba.JPG" alt="user nav profile image">
+            </div>
+            <i class="fa-solid fa-caret-down"></i>
+            <button class="btn btn-success px-2 py-2" type="submit">Book a Consultation</button>
+          </div>
         </div>
-        <div class="edit_profle_div">
-            <button>Personal details</button>
-            <button>Login details</button>
-            <button>Notification Settings</button>
-            <button>payment Settings</button>
-            <button>Privacy Settings</button>
-        </div>
-    </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+      </div>
+    </nav>
+  </header>
+  <main class="parent_main">
+    <div class="profile_div">
+      <div id="img_container">
+        <img id="profile-image" src="../assets/Ellipse 20.svg" alt="Profile picture">
+      </div>
+      <input type="file" id="file-input">
+      <a href="#" id="crop-button">edit</a>
+      <p><span>Name: </span><span class="user_values">Martha-White</span></p>
+      <p><span>Username: </span><span class="user_values">MarthaGurl123</span></p>
+      <p><span>Email Address: </span><span class="user_values">Marthagurls@tmail.com</span></p>
+      <p><span>Subscription Pla: </span><span class="user_values">Silver</span></p>
+    </div>
+    <div class="edit_profle_div">
+      <button id="p_details">Personal details</button>
+      <button id="login_setings">Login details</button>
+      <button id="notification_set">Notification Settings</button>
+      <button id="">payment Settings</button>
+      <button id="privacy_set">Privacy Settings</button>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.min.js"></script>
+  <script>
+
+    // this functions are set to redirect the user profile buttons
+    let p_details = document.querySelector('#p_details')
+    let login_setings = document.querySelector('#login_setings')
+    let notification_set = document.querySelector('#notification_set')
+    // let p_details = document.querySelector('#p_details')
+    let privacy_set = document.querySelector('#privacy_set')
+
+
+
+    p_details.addEventListener('click', (e) => {
+      const redirectUrl = 'personal_details.html'
+      window.location.href = redirectUrl;
+    })
+    login_setings.addEventListener('click', (e) => {
+      const redirectUrl = 'login_set.html'
+      window.location.href = redirectUrl;
+    })
+    notification_set.addEventListener('click', (e) => {
+      const redirectUrl = 'notification_set.html'
+      window.location.href = redirectUrl;
+    })
+    // p_details.addEventListener('click', (e) =>{
+    //   const redirectUrl = 'notification_set.html'
+    //       window.location.href = redirectUrl;
+    // })
+    privacy_set.addEventListener('click', (e) => {
+      const redirectUrl = 'privacy_set.html'
+      window.location.href = redirectUrl;
+    })
+
+    const profileImage = document.getElementById("profile-image");
+    const fileInput = document.getElementById("file-input");
+    const cropButton = document.getElementById("crop-button");
+    const navProfileImage = document.querySelector('#nav-profile-image')
+
+    let cropper;
+
+    fileInput.addEventListener("change", function (e) {
+      const file = e.target.files[0];
+
+      if (file) {
+        // Add validation for file type and size here.
+
+        // Display the selected image as the new profile picture.
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          profileImage.src = e.target.result;
+          navProfileImage.src = e.target.result; // Updates the nav profile image src
+          if (cropper) {
+            cropper.destroy();
+          }
+
+          cropper = new Cropper(profileImage, {
+            aspectRatio: 1, // You can set the aspect ratio as needed
+            viewMode: 2,   // Adjusts the cropping box to cover the entire image
+          });
+        };
+
+        reader.readAsDataURL(file);
+      }
+    });
+
+    cropButton.addEventListener("click", function () {
+      if (cropper) {
+        // Get the cropped data (as a base64-encoded image)
+        const croppedData = cropper.getCroppedCanvas().toDataURL("image/jpeg");
+
+        // Replace the default image with the cropped image
+        profileImage.src = croppedData;
+        navProfileImage.src = croppedData; // Update the nav profile image src
+
+        // Destroy the Cropper.js instance
+        cropper.destroy();
+      }
+    });
+
+    // Creating a dropdown section near the navProfileImage
+    let dropdown = document.querySelector('.fa-caret-down')
+    console.log(dropdown)
+
+    // adding an event listner to display a dropddown
+    dropdown.addEventListener('click', (e) =>{
+      
+    })
+  </script>
 </body>
+
 </html>

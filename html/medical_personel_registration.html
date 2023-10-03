@@ -28,8 +28,8 @@
                     <input type="date" name="date_of_birth" id="date_of_birth" required>
                 </div>
                 <div>
-                    <label for="">Nationality: </label>
-                    <select name="nationality" id="nationality">
+                    <label for="countrySelect">Nationality: </label>
+                    <select name="countrySelect" id="countrySelect">
                         <option value=""></option>
                     </select>
                 </div>
@@ -45,8 +45,8 @@
                     </select>
                 </div>
                 <div>
-                    <label for="emp_sta:">Employment Status: </label>
-                    <select name="employ" id="">
+                    <label for="emp_sta">Employment Status: </label>
+                    <select name="emp_sta" id="emp_sta">
                         <option value="">Select</option>
                         <option value=""></option>
                         <option value=""></option>
@@ -54,21 +54,21 @@
                 </div>
                 <div>
                     <label for="org_name">Name of Organization: </label>
-                    <select name="employ" id="">
+                    <select name="org_name" id="org_name">
                         <option value="">Select</option>
                         <option value=""></option>
                         <option value=""></option>
                     </select>
                 </div>
-                <div><label for="org">Qualification: </label>
-                    <select name="employ" id="">
+                <div><label for="qualification">Qualification: </label>
+                    <select name="qualification" id="qualification">
                         <option value="">Select</option>
                         <option value=""></option>
                         <option value=""></option>
                     </select></div>
                 <div>
-                    <label for="">Medical Personnel:</label>
-                    <select name="employ" id="employ_status">
+                    <label for="med_pers">Medical Personnel:</label>
+                    <select name="med_pers" id="med_pers">
                         <option value="">Select</option>
                         <option value=""></option>
                         <option value=""></option>
@@ -120,14 +120,37 @@
     <script>
 
         let register_btn = document.querySelector('register')
-    console.log(register_btn)
+    // console.log(register_btn)
 
-        register_btn.addEventListener('click', (e) => {
-                e.preventDefault()
-            const redirectUrl = 'patient_home_pg.html'
+    //     register_btn.addEventListener('click', (e) => {
+    //             e.preventDefault()
+    //         const redirectUrl = 'patient_home_pg.html'
 
-            window.location.href = redirectUrl;
-        })
+    //         window.location.href = redirectUrl;
+    //     })
+
+
+        function populateCountries() {
+            let select = document.querySelector("#countrySelect");
+
+            // Fetch the JSON data from the file
+
+            fetch("../countries.json")
+                .then(response => response.json())
+                .then(data => {
+                    // Loop through the data and create an option element for each country
+                    data.forEach(country => {
+                        let option = document.createElement("option");
+                        option.value = country.code; // You can use country code as the value if needed
+                        option.text = country.name;
+                        select.appendChild(option);
+                    });
+                })
+                .catch(error => console.error("Error fetching data:", error));
+        }
+
+        // Call the populateCountries function to populate the select element
+        populateCountries();
     </script>
 </body>
 </html>

@@ -1,0 +1,263 @@
+*{
+    --text_colour: #121212;
+    --primary: #228A5E;
+    --secondary: #D90000;
+    --gray: #898989;
+    --roboto: 'Roboto Condensed', sans-serif;
+}
+#body{
+    background-color: #898989;
+    font-family:'Roboto Condensed', sans-serif ;
+}
+.nav_div img{
+    width: 6rem;
+}
+.nav_div{
+    display: flex !important;
+    gap: 10rem;
+}
+/* main */
+
+/* style for Select services section  */
+.service_select{
+    margin-top: 5rem;
+    width: 80%;
+    margin-inline: auto;
+    background-color: #F3F9F6;
+    display: flex;
+    position: relative;
+}
+#position{
+    /* position: absolute; */
+    width: 100%;
+    border-radius: 10px;
+    background-color: #F3F9F6;
+}
+.service_select_top{
+    margin-top: -2.5rem;
+    height: 2.5rem;
+    width: 100%;
+    display: flex;
+    
+}
+.service_select_top #select{
+    border-bottom-right-radius: none;
+    border-bottom-left-radius: none;
+    background-color: #F3F9F6;
+    border: none;
+    border-bottom: 1px solid #a6b3ae;
+    font-weight: 600;
+}
+.service_select_top #hidden{
+    width: 100%;
+    visibility: hidden;
+}
+.service_select_bottom{
+    height: max-content;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.25);
+    outline: none;
+}
+.service_select_bottom input, select{
+    border-radius: 10px;
+    border: 2px solid var(--primary);
+    outline: none;
+    padding: 0.5rem;
+}
+/* section-2 */
+.filter{
+    background-color:#898989;
+    border-radius:6px;
+}
+.sizeable-line{
+    border-bottom: 2px solid #000;
+    width: 100%;
+    margin: 0 auto;
+}
+.card{
+    border: none !important;
+    box-shadow: 2px 2px 2px 2px rgba(19, 28, 25, 0.1);
+}
+
+/* footer section */
+footer{
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    height: 100vh;
+    background-color: var(--primary);
+}
+.footer_p{
+    color: white;
+}
+.parent_footer_div{
+    display: flex;
+    justify-content: space-around;
+}
+.child_footer_div ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+}
+.child_footer_div ul a{
+    color: white;
+    text-decoration: none;
+    padding-block: 1rem;
+}
+.footer_form_div{
+    height: 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+.footer_form_div form{
+    width: 35%;
+    margin-right: 5rem;
+
+}
+.footer_form_div form input{
+    width: 80%;
+    border-radius: 5px;
+    border: none;
+    padding: 1.1rem;
+}
+.footer_form_div form p{
+    text-align: center;
+    margin-bottom: 1.75rem;
+}
+#footer_btn_div{
+    position: relative;
+}
+#footer_btn_div button{
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    width: 30%;
+    height: 2.12rem;
+    position: absolute;
+    bottom: 0.8rem;
+    left: 13.5rem;
+    padding-bottom: 1.2rem;
+    padding-top: 0.3rem;
+    border-radius: 5px;
+}
+footer .child_p{
+    background-color: white;
+    margin-top: 3.5rem;
+    padding-block: 0.3rem;
+    text-align: center;
+    color: #121212;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* responsiveness for select section */
+@media screen and (max-width: 575px){
+    .service_select{
+        width: 88%;
+        display: flex;
+    }
+    #position{
+        position: static;
+        width: 100%;
+    }
+    .service_select_top{
+        margin-top: -2.5rem;
+        height: 2.5rem;
+        width: 100%;
+    }
+    .service_select_top #hidden{
+        width: 100%;
+        display: none;
+    }
+    .service_select_bottom{
+        position: static;
+        width: 100%;
+        margin-inline: auto;
+        flex-direction: column;
+    }
+    .service_select_bottom input, select{
+        width: 80%;
+    }
+}
+/* footer responsiveness for tabs*/
+@media screen and (min-width: 576px) and (max-width: 920px){
+    footer{
+        height: max-content;
+    }
+    .footer_form_div form{
+        width: 50%;
+    }
+    .footer_form_div form input{
+        width: 100%;
+    }
+    #footer_btn_div button{
+        left: 18rem;
+    }
+}
+
+/* footer responsiveness for mobile screens*/
+@media screen and (max-width: 575px) {
+    footer{
+        height: max-content;
+        padding-top: 5rem;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        background-color: var(--primary);
+    }
+    .child_footer_div img{
+        padding-left: 7rem;
+        padding-bottom: 3rem;
+    }
+    .parent_footer_div{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        justify-content:center;
+    }
+    .child_footer_div ul{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    .footer_form_div{
+        height: fit-content;
+        width: 100%;
+    }
+    .footer_form_div form{
+        width: 100%;
+        margin-right: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+    }
+    .footer_form_div form input{
+        width: 80%;
+        margin-inline: auto;
+    }
+    #footer_btn_div{
+        position: relative;
+    }
+    #footer_btn_div button{
+        bottom: 0.5rem;
+        left: 15rem;
+        padding-bottom: 0rem;
+        padding-top: 0rem;
+    }
+    footer .child_p{
+        margin-top: 0.2rem;
+        flex-direction: column;
+        justify-content: center;
+    }
+}

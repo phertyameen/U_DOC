@@ -17,7 +17,9 @@ p{
 .nav_div{
     display: flex !important;
     gap: 10rem;
-    justify-content: space-evenly !important;
+}
+.nav-item a{
+    font-weight: 600;
 }
 #notification_icons i{
     border: 1px solid var(--primary);
@@ -56,6 +58,16 @@ p{
     width: 60%;
     text-align: justify;
 }
+/* this element styling if found only in the landing page */
+.get_started_btn{
+    background-color: #F3F9F6;
+    color: var(--secondary);
+    border: none;
+    width: 30%;
+    padding-block: 1rem;
+}
+/* styling ends here */
+
 .hero_div_text .clickable_opt{
     display: flex;
     justify-content: space-between;
@@ -153,11 +165,11 @@ svg{
     margin-top: 2rem;
 }
 .text_img_div .img_div{
-    width: 35%;
+    width: 37%;
     padding: 3.5rem;
 }
 .img_text_div .img_div{
-    width: 35%;
+    width: 37%;
     padding: 3.5rem;
 }
 .img_div img{
@@ -166,7 +178,7 @@ svg{
     border-bottom-left-radius: 20px;
 }
 .text_div{
-    width: 35%;
+    width: 36%;
     line-height: 2rem;
 }
 .text_div p{
@@ -230,13 +242,13 @@ h4 span a{
 }
 .how_it_works_child div p{
     line-height: 2rem;
+    text-align: justify;
 }
 .how_it_works_cchild i{
     font-size: 3rem;
     color: var(--primary);
     padding: 1rem;
     border: 1px solid #228A5E;
-    text-align: center;
     border-radius: 10px;
     margin-left: 10rem;
 }

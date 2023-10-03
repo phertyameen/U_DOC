@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maedical practitioner profile</title>
+    <link rel="stylesheet" href="../css/user_profile.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid nav_div px-5">
+          <img src="../assets/u_and_doc_logo.png" alt="U and Doc logo">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+            aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#how_it_works">How it works</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#our_service" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Our Services
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Consultation</a></li>
+                  <li><a class="dropdown-item" href="#">Medication</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">store</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Blog</a>
+              </li>
+            </ul>
+            <div class="d-flex gap-2">
+              <div id="notification_icons">
+                <i class="fa-solid fa-message"></i>
+                <i class="fa-solid fa-bell"></i>
+              </div>
+              <div id="nav_profile_img">
+                <img id="nav-profile-image" src="../assets/Fatima_Aminu_Baba.JPG" alt="user nav profile image">
+              </div>
+              <i class="fa-solid fa-caret-down"></i>
+              <button class="btn btn-success px-2 py-2" type="submit">Book a Consultation</button>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="med_profile_hero_img">
+      </div>
+    </header>
+    <main class="med_profile_main">
+        <div class="profile_overview">
+            <div class="med_profile_div">
+                <img src="../assets/doc_Aisha.jpeg" alt="">
+            </div>
+            <div class="Basic_info_div">
+                <p>Name: <span class="value">Aisha Haruna</span></p>
+                <p>Profession: <span class="value">Medical Doctor - Pediatrician</span></p>
+                <p>U&DOC Level: <span class="value">Gold</span></p>
+                <p>Language fluent in: <span class="value">English - Hausa</span></p>
+                <p>Resident Country: <span class="value">Nigeria</span></p>
+            </div>
+        </div>
+        <div class="booking">
+            <button id="book_consult">Book Consultation</button>
+            <button id="add_wlist">Add to wishList</button>
+        </div>
+    </main>
+</body>
+</html>

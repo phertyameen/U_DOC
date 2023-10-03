@@ -29,7 +29,7 @@
                     <p id="password_reset">Forgot your password? <a href="./reset_password.html">Reset Password</a></p>
                 </div>
                 <div class="log_in_div">
-                    <input type="checkbox" name="accept_terms" ><span>I have read and accepted the U&Doc</span> <a href="#" class="red_text">Terms of Use</a> and <a href="#" class="red_text">Privacy Policy.</a>
+                    <input type="checkbox" name="accept_terms" ><span>I have read and accepted the U&Doc</span> <a href="./terms.html" class="red_text">Terms of Use</a> and <a href="./privacy_policy.html" class="red_text">Privacy Policy.</a>
                     <button type="submit" class="login_btn">Log In</button>
                     <div id="inline_parent_p">
                         <hr>
@@ -46,7 +46,7 @@
     </main>
     <script src="../js/password_pop_ups.js"></script>
     <!-- <script src="https://apis.google.com/js/platform.js" async defer></script>
-            <script src="../js/index.js"></script> -->
+                <script src="../js/index.js"></script> -->
     <script type="module">
         //  this function redirects you to user profile page
         let login_btn = document.querySelector('.login_btn')
@@ -54,20 +54,21 @@
         let patient = document.querySelector('#user_category')
         console.log(patient.value)
 
+
         login_btn.addEventListener('click', (e) => {
-            if(patient.value="Regular User"){
-                e.preventDefault()
-            const redirectUrl = 'patient_home_pg.html'
+            e.preventDefault();
+            const selectedValue = patient.value;
 
-            window.location.href = redirectUrl;
-            } 
-            // else{
-            //     e.preventDefault()
-            // const redirectUrl = 'patient_home_pg.html'
-
-            // window.location.href = redirectUrl;
-            // }
-        })
+            if (selectedValue === "patient") {
+                const redirectUrl = 'patient_home_pg.html';
+                window.location.href = redirectUrl;
+            } else if (selectedValue === "medical personnel") {
+                const redirectUrl = 'med_home_pg.html';
+                window.location.href = redirectUrl;
+            } else {
+                alert("Please select a user category");
+            }
+        });
 
        // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
