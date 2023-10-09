@@ -18,7 +18,7 @@
         <section class="boder_right log_in_hero-section">
         </section>
         <section>
-            <form action="" method="post" class="sign_up_form">
+            <form action="" method="post" class="sign_up_form" id="registrationForm">
                 <div class="header_div">
                     <h1><img src="../assets/logo.svg" alt="u&doc logo">U&DOC<h1>
                             <h5>Your health, Our Priority.</h5>
@@ -26,15 +26,15 @@
                 </div>
                 <div>
                     <div name="user_fullname" id="user_fullname">
-                        <input type="text" id="first_name" name="first_name" placeholder="First Name">
-                        <input type="text" id="last_name" name="last_name" placeholder="Last Name">
+                        <input type="text" id="firstName" name="firstName" placeholder="First Name">
+                        <input type="text" id="lastName" name="lastName" placeholder="Last Name">
                     </div>
                     <input type="text" name="username" id="username" placeholder="Username" class="input">
                     <input type="password" name="password" id="password" placeholder="Create a strong password"
                         class="input" minlength="8">
                     <div id="user_contact">
-                        <input type="date" id="date_of_birth" name="date_of_birth">
-                        <input type="tel" id="phone_no" name="phone_no" placeholder="(+234) |">
+                        <input type="date" id="dateOfBirth" name="dateOfBirth">
+                        <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="(+234) |">
                     </div>
                     <input type="email" name="email" id="email" placeholder="Email Address" class="input">
                     <p id="login_page">Have an account? <a href="./log_in.html">Log In</a></p>
@@ -62,7 +62,7 @@
             </div>
         </section>
     </main>
-    <script src="../js/password_pop_ups.js"></script>
+    <!-- <script src="../js/password_pop_ups.js"></script> -->
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="../js/index.js"></script>
     <script type="module">
@@ -118,6 +118,39 @@
 
   signInButton.addEventListener('click', userSignIn);
         
+
+//   user signup authentication
+
+// script.js
+
+document.addEventListener('DOMContentLoaded', function () {
+    const registrationForm = document.getElementById('registrationForm');
+
+    registrationForm.addEventListener('submit', function (e) {
+        e.preventDefault(); // Prevent the default form submission behavior
+
+        // Get form data
+        const formData = new FormData(registrationForm);
+
+        // Define the URL of your backend API endpoint
+        const apiUrl = 'https://u-and-doc.onrender.com/api/user/signup';
+
+        // Send a POST request to the backend
+        fetch(apiUrl, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Handle the response from the backend (e.g., display a success message)
+            console.log('Registration successful:', data);
+        })
+        .catch(error => {
+            console.error('Error registering user:', error);
+        });
+    });
+});
+
       </script>
 </body>
 </html>

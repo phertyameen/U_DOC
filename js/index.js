@@ -19,3 +19,19 @@ setInterval(e => {
 }, 1000)
 
 // resend_code.addEventListener('click', setInterval(e))
+
+// signup auth
+const axios = require('axios');
+const signUpData = {
+    username: 'exampleuser',
+    password: 'password123',
+    // Other registration data
+  };
+  
+  axios.post('https://u-and-doc.onrender.com/api/user/signup', signUpData)
+    .then(response => {
+      console.log('Sign-up successful:', response.data);
+    })
+    .catch(error => {
+      console.error('Sign-up failed:', error.response.data);
+    });

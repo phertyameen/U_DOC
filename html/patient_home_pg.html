@@ -45,7 +45,7 @@
                         <i class="fa-solid fa-bell"></i>
                         <i class="fa-solid fa-user-large user_edit"></i>
                     </div>
-                  <button class="btn btn-success px-2 py-2" type="submit" id="book_consult">Book a Consultation</button>
+                  <button class="btn btn-success px-2 py-2 book_consultbtn" type="submit" id="book_consult">Book a Consultation</button>
                 </div>
               </div>
             </div>
@@ -88,7 +88,7 @@
                     </select>
                     <select name="select" id="select">
                         <option value="s_service">Select Services</option>
-                        <option value="s_service">Book a consultation</option>
+                        <option value="s_service" class="book_consultbtn">Book a consultation</option>
                         <option value="s_service">Medication purchase</option>
                         <option value="s_service">Hardware Store</option>
                     </select>
@@ -318,7 +318,7 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
     <script>
-        let book_consult = document.querySelector('#book_consult')
+        let book_consult = document.querySelector('.book_consultbtn')
         let user_edit = document.querySelector('.user_edit')
         // console.log(user_edit)
 
