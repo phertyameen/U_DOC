@@ -268,11 +268,15 @@
       </p>
   </footer>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+    crossorigin="anonymous"></script>
 <script>
   let review_p_sect = document.querySelector('.review_p_sect');
   let brief_p_sect = document.querySelector('.brief_p_sect');
   const review_sect = document.querySelector('#review_sect')
   const Brief_sect = document.querySelector('#Brief_sect')
+  const bookconsultbtn = document.querySelector('#book_consult')
 
   console.log(review_p_sect)
   console.log(brief_p_sect)
@@ -296,6 +300,37 @@
     review_sect.style.color = '#898989'
     review_sect.style.borderBottom = 'none'
   })
+
+  bookconsultbtn.addEventListener('click', () => {
+    window.location.href = 'subscription.html'
+  })
+
+  const authToken = localStorage.getItem("authToken");
+
+if (authToken) {
+    // You can use the authToken here
+    console.log("Token in localStorage: " + authToken);
+
+    // Retrieve values from local storage
+const selectedValue = localStorage.getItem('selectedValue');
+const consultType = localStorage.getItem('consultType');
+const time = localStorage.getItem('time');
+const date = localStorage.getItem('date');
+
+// Now, you can use these values as needed on the next HTML page
+console.log('Selected Value:', selectedValue);
+console.log('Consultation Type:', consultType);
+console.log('Time:', time);
+console.log('Date:', date);
+
+
+    // Perform actions that require the authToken
+
+} else {
+    // Handle cases where the authToken is not as expected
+    console.error("Invalid or missing authToken");
+    window.location.href = "log_in.html";
+}
 
 </script>
 </html>

@@ -28,7 +28,7 @@
     position: relative;
 }
 #position{
-    /* position: absolute; */
+    position: relative;
     width: 100%;
     border-radius: 10px;
     background-color: #F3F9F6;
@@ -67,6 +67,19 @@
     border: 2px solid var(--primary);
     outline: none;
     padding: 0.5rem;
+}
+#position #alldoc{
+    position: absolute;
+    left: 50%;
+    background-color: #F3F9F6;
+    padding: 0 1rem;
+    border-radius: 10px;
+    height: 15rem;
+    overflow-y: scroll;
+    display: none;
+}
+#position #alldoc:hover{
+    cursor: pointer;
 }
 /* section-2 */
 .filter{

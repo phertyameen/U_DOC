@@ -1,0 +1,12 @@
+<svg width="112" height="112" viewBox="0 0 112 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Mask group">
+<mask id="mask0_248_634" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="112" height="112">
+<g id="Group">
+<path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M2 17L17 2L56 41L95 2L110 17L71 56L110 95L95 110L56 71L17 110L2 95L41 56L2 17Z" fill="white" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</mask>
+<g mask="url(#mask0_248_634)">
+<path id="Vector_2" d="M-16 -16H128V128H-16V-16Z" fill="#FF2716"/>
+</g>
+</g>
+</svg>

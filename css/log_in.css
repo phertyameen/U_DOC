@@ -16,7 +16,7 @@ main{
     display: flex;
 }
 main section{
-    height: 100vh;
+    height: 105vh;
     width: 50%;
 }
 .log_in_hero-section{
@@ -65,16 +65,13 @@ form .input:hover{
     gap: 0.3rem;
 }
 .header_div img{
-    height: 2.5rem;
-    width: 2.5rem;
+    /* height: 2.5rem; */
+    /* width: 2.5rem; */
     margin-right: 0.8rem;
     margin-bottom: -0.3rem;
 }
-.header_div h1{
-    font-family: var(--roboto);
-    margin-bottom: 0.5rem;
-}
 .header_div h5{
+    font-size: 1.5rem;
     margin-bottom: 0.3rem;
     color: var(--primary);
 }
@@ -176,3 +173,55 @@ form .input:hover{
     }
 }
 
+
+/* success alert pop ups such as password reset and email verification*/
+.invalidusermessage{
+    width: 40%;
+    height: 50vh;
+    margin-inline: auto;
+    box-shadow: 2px 2px 2px 3px #d6dad8;
+    display: none;
+}
+.invalidusermessage .error_X{
+    height: 30%;
+    width: 30%;
+    margin-inline: auto;
+    margin-block: 2rem;
+    box-shadow: 2px 2px 2px 2px rgba(61, 22, 21, 0.177);
+    border-radius: 50%;
+    padding: 1.9rem 1rem;
+}
+.invalidusermessage .error_X img{
+    width: 100%;
+    height: 100%;
+}
+.invalidusermessage p{
+    text-align: center;
+    font-family: Helvetica, Arial, sans-serif;
+    margin-block: 1rem;
+}
+.invalidusermessage button{
+    height: 2rem;
+    width: 80%;
+    display: block;
+    margin-inline: auto;
+    background-color: var(--primary);
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+}
+@media screen and (max-width: 650px) {
+
+    /* success popups responsiveness */
+    .invalidusermessage {
+        width: 80vw;
+        height: 50vh;
+        margin-inline: auto;
+        margin-bottom: 3rem;
+    }
+
+    .invalidusermessage .error_X {
+        padding: 1.2rem 0.4rem;
+        margin-block: 1rem;
+    }
+}

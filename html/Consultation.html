@@ -76,24 +76,54 @@
               <div class="service_select_bottom">
                 <div>
                   <p>Date</p>
-                  <input type="date" name="date" id="date" placeholder="Date">
+                  <input type="date" name="date" id="date" placeholder="Date" id="dateId">
                 </div>
                 <div>
                   <p>Time</p>
-                  <input type="time" name="time" id="time" value="00:00">
+                  <input type="time" name="time" id="time" value="00:00" id="timeId">
                 </div>
                 <div>
                   <p>Medical Profession</p>
                   <select name="med_prof" id="med_prof">
-                    <option value="mProf">Medical Profession</option>
+                    <option value="selection">Select</option>
+                    <option value="mProf" id="alldoclist">Medical Doctor</option>
+                    <option value="Phermacist">Phermacist</option>
+                    <option value="Nurses">Nurses</option>
+                    <option value="Nutritionist/Dietician">Nutritionist/Dietician</option>
+                    <option value="Medical Lab Scientist">Medical Lab Scientist</option>
                   </select>
                 </div>
                 <div>
                   <p>Cunsultation Type</p>
                   <select name="consult_typ" id="consult_typ">
                     <option value="Consult_typ">Consultation Type</option>
+                    <option value="Consult_typ">Audio</option>
+                    <option value="Consult_typ">Video</option>
+                    <option value="Consult_typ">Chat</option>
                   </select>
                 </div>
+              </div>
+              <div name="mProf" id="alldoc">
+                <p value="allergistImmunologist">Allergist/Immunologist</p>
+                <p value="cardiologist">Cardiologist</p>
+                <p value="generalPractitioner">General Practitioner</p>
+                <p value="dentist">Dentist</p>
+  
+                <p value="dermatologist">Dermatologist</p>
+                <p value="emergency Physician">Emergency Physician</p>
+                <p value="endocrinologist">Endocrinologist</p>
+                <p value="ent">ENT</p>
+                <p value="gastroenterologist">Gastroenterologist</p>
+                <p value="geriatrcian">Geriatrcian</p>
+                <p value="gynaecologist">Gynaecologist</p>
+                <p value="infectious Diseases">Infectious Diseases </p>
+                <p value="nephrologist">Nephrologist</p>
+                <p value="opthalmologist">Opthalmologist</p>
+                <p value="orthopedist">Orthopedist</p>
+                <p value="paediatrician">Paediatrician</p>
+                <p value="psychiatrist">Psychiatrist</p>
+                <p value="rheumatologist">Rheumatologist</p>
+                <p value="urologist">Urologist</p>
               </div>
             </div>
           </div>
@@ -227,11 +257,6 @@
     <!-- Section 3 Ends -->
   </main>
 
-
-
-
-
-
   <footer>
     <div class="container-fluid parent_footer_div">
       <div class="child_footer_div">
@@ -303,18 +328,85 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
     integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
     crossorigin="anonymous"></script>
-    <script>
+  <script>
+
+    // capturing consultation input
+
+    const medProfSelect = document.querySelector('#med_prof');
+  const alldoc = document.querySelector('#alldoc');
+  const pTags = alldoc.querySelectorAll('p');
+  const mProfOption = document.querySelector('#alldoclist');
+  const consultTypeSelect = document.querySelector('#consult_typ');
+  const timeInput = document.querySelector('#time');
+  const dateInput = document.querySelector('#date');
+  let selectedValue;
+
+  medProfSelect.addEventListener('change', () => {
+    if (medProfSelect.value === 'mProf') {
+      alldoc.style.display = 'block';
+    } else {
+      alldoc.style.display = 'none';
+    }
+  });
+
+  pTags.forEach(pTag => {
+    pTag.addEventListener('click', () => {
+      mProfOption.textContent = pTag.textContent;
+      const selectedValue = pTag.textContent;
+      // medProfSelect.value = selectedValue;
+      alldoc.style.display = 'none'; // Hide the div
+    });
+  });
+
+    const authToken = localStorage.getItem("authToken");
+    const userInfo = JSON.parse(localStorage.getItem("userinfo"));
+
+    console.log("userinfo is: ", JSON.parse(localStorage.getItem("userinfo")));
+
+
+    if (authToken) {
+      // You can use the authToken here
+      console.log("Token in localStorage: " + authToken);
+
+      // Perform actions that require the authToken
+
       let doc_Aisha = document.querySelector('#doc_Aisha')
 
       // this function directs you to specific consultation booking page
 
       doc_Aisha.addEventListener('click', (e) => {
-            // e.preventDefault()
-            const redirectUrl = 'med_prac_details.html'
+        // e.preventDefault()
+        const redirectUrl = 'med_prac_details.html'
 
-            window.location.href = redirectUrl;
-        } )
-    </script>
+        window.location.href = redirectUrl;
+
+        localStorage.setItem('selectedValue', selectedValue);
+      localStorage.setItem('consultType', consultTypeSelect.value);
+      localStorage.setItem('time', timeInput.value);
+      localStorage.setItem('date', dateInput.value);
+
+      // Print the stored values to the console
+      console.log('Selected Value:', localStorage.getItem('selectedValue'));
+      console.log('Consultation Type:', localStorage.getItem('consultType'));
+      console.log('Time:', localStorage.getItem('time'));
+      console.log('Date:', localStorage.getItem('date'));
+      })
+
+    } else {
+      // Handle cases where the authToken is not as expected
+      console.error("Invalid or missing authToken");
+      window.location.href = "log_in.html";
+    }
+
+    // const med_prof = document.querySelector('#med_prof')
+    // const alldoc = document.querySelector('#alldoc')
+
+    // alldoc.addEventListener('mouseover', e => {
+    //   let alldocList = document.querySelector('#alldoclist')
+    //   alldocList.style.display ='block'
+    // })
+
+  </script>
 </body>
 
 </html>

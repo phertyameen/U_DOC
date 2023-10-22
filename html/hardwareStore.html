@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/hardwareStore.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <main>
+        <section id="item_details">
+            <h3>Item Details</h3>
+            <div class="items">
+                <input type="text" name="" placeholderItem="" class="item">
+                <input type="number" name="" placeholder="Quantity" class="quantity">
+                <input type="text" name="" placeholder="Description" class="description">
+            </div>
+            <div class="items">
+                <input type="text" name="" placeholderItem="" class="item">
+                <input type="number" name="" placeholder="Quantity" class="quantity">
+                <input type="text" name="" placeholder="Description" class="description">
+            </div>
+            <div class="items">
+                <input type="text" name="" placeholderItem="" class="item">
+                <input type="number" name="" placeholder="Quantity" class="quantity">
+                <input type="text" name="" placeholder="Description" class="description">
+            </div>
+            <div class="items">
+                <input type="text" name="" placeholderItem="" class="item">
+                <input type="number" name="" placeholder="Quantity" class="quantity">
+                <input type="text" name="" placeholder="Description" class="description">
+            </div>
+            <div class="items">
+                <input type="text" name="" placeholderItem="" class="item">
+                <input type="number" name="" placeholder="Quantity" class="quantity">
+                <input type="text" name="" placeholder="Description" class="description">
+            </div>
+            <a href="#" id="cloneBtn"><small>Add more fields <span id="plus">+</span></small></a>
+        </section>
+        <section id="delivery_details">
+            <div id="address">
+                <h3>Delivery Detalis</h3>
+                <div>
+                    <label for="line1">Line 1</label>
+                    <input type="text" name="" id="line1" placeholder="Line 1">
+                </div>
+                <div>
+                    <label for="line2">Line 2</label>
+                    <input type="text" name="" id="line2" placeholder="Line 2">
+                </div>
+                <div>
+                    <label for="city_town">City/Towm</label>
+                    <input type="text" name="city_town" id="city_town" placeholder="City/Town">
+                </div>
+                <div>
+                    <label for="country">Country</label>
+                    <input type="text" name="country" id="country" placeholder="Country">
+                </div>
+            </div>
+            <div class="textarea">
+                <h5>Note:</h5>
+                <textarea name="description" id="description" cols="30" rows="10"></textarea>
+            </div>
+        </section>
+        <aside>
+            <img id="profile-image" src="../assets/picupload.png" alt="product description">
+            <input type="file" id="file-input" style="border: none; width: 30%; display: block; margin-inline: auto;">
+            <a href="#" id="crop-button">Upload Product Picture</a>
+        </aside>
+        <div class="previewbtn">
+            <button>Preview Order</button>
+        </div>
+    </main>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.min.js"></script>
+<script>
+    const profileImage = document.getElementById("profile-image");
+    const fileInput = document.getElementById("file-input");
+    const cropButton = document.getElementById("crop-button");
+    // picture upload
+    let cropper;
+
+    fileInput.addEventListener("change", function (e) {
+      const file = e.target.files[0];
+
+      if (file) {
+        // Add validation for file type and size here.
+
+        // Display the selected image as the new profile picture.
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          profileImage.src = e.target.result;
+          navProfileImage.src = e.target.result; // Updates the nav profile image src
+          if (cropper) {
+            cropper.destroy();
+          }
+
+          cropper = new Cropper(profileImage, {
+            aspectRatio: 1, // You can set the aspect ratio as needed
+            viewMode: 2,   // Adjusts the cropping box to cover the entire image
+          });
+        };
+
+        reader.readAsDataURL(file);
+      }
+    });
+
+    cropButton.addEventListener("click", function () {
+      if (cropper) {
+        // Get the cropped data (as a base64-encoded image)
+        const croppedData = cropper.getCroppedCanvas().toDataURL("image/jpeg");
+
+        // Replace the default image with the cropped image
+        profileImage.src = croppedData;
+        navProfileImage.src = croppedData; // Update the nav profile image src
+      }
+    })
+
+    // Get the anchor tag to trigger the cloning
+    const cloneButton = document.getElementById('cloneBtn');
+
+    // Get the div to be cloned
+    const divToClone = document.querySelector('.items');
+
+    // Add a click event listener to the anchor tag
+    cloneButton.addEventListener('click', function () {
+      // Clone the div
+      const clonedDiv = divToClone.cloneNode(true);
+
+      // Insert the cloned div before the anchor tag
+      cloneButton.parentNode.insertBefore(clonedDiv, cloneButton);
+    });
+
+
+    // preview items
+// Function to store the data in local storage
+function storeData() {
+    const items = document.querySelectorAll('.items');
+    const storedData = [];
+    const deliveryDetails = {
+        line1: document.getElementById('line1').value,
+        line2: document.getElementById('line2').value,
+        city_town: document.getElementById('city_town').value,
+        country: document.getElementById('country').value,
+        description: document.getElementById('description').value,
+    };
+
+    const croppedImageData = profileImage.src; // Assuming profileImage is your image element
+
+    items.forEach((item, index) => {
+        const itemInput = item.querySelector('.item');
+        const quantityInput = item.querySelector('.quantity');
+        const descriptionInput = item.querySelector('.description');
+
+        const itemValue = itemInput.value;
+        const quantityValue = quantityInput.value;
+        const descriptionValue = descriptionInput.value;
+
+        // Check if any input is empty, and skip it
+        if (itemValue.trim() === '' || quantityValue.trim() === '' || descriptionValue.trim() === '') {
+            return;
+        }
+
+        const data = {
+            item: itemValue,
+            quantity: quantityValue,
+            description: descriptionValue
+        };
+
+        storedData.push(data);
+    });
+    // Store the order details and delivery details in an object
+    const orderDetails = {
+        items: storedData,
+        delivery: deliveryDetails,
+        image: croppedImageData,
+    };
+
+    // Save the data to local storage
+    localStorage.setItem('orderData', JSON.stringify(orderDetails));
+
+    // Log the data to the console
+    console.log('Data stored in local storage:');
+    console.log(orderDetails);
+
+    window.location.href = 'preview.html'
+}
+    const previewbtn = document.querySelector('.previewbtn')
+
+    previewbtn.addEventListener('click', storeData)
+
+</script>
+</html>

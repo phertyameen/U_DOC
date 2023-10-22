@@ -1,0 +1,120 @@
+*{
+    --text_colour: #121212;
+    --primary: #228A5E;
+    --secondary: #D90000;
+    --gray: #898989;
+    --roboto: 'Roboto Condensed', sans-serif;
+}
+h3, h4, h5, p{
+    font-family: var(--roboto);
+}
+main{
+    height: 100%;
+    width: 100%;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+#item_details{
+    width: 60%;
+    height: 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+#item_details div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#address{
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: space-between;
+}
+#address div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#delivery_details{
+    margin: 1.5rem 0;
+    width: 60%;
+    height: 30%;
+    display: flex;
+    justify-content: space-between;
+}
+#delivery_details .textarea{
+    width: 32%;
+    height: 100%;
+}
+input, textarea{
+    border-radius: 10px;
+    padding: 0.5rem;
+    border: 1px solid var(--gray);
+    box-shadow: 2px 2px 2px rgba(63, 65, 63, 0.25);
+}
+a{
+    text-decoration: none;
+    color: var(--secondary);
+    margin-left: 2rem;
+}
+a small #plus{
+    color: #fff;
+    padding: 0 0.1rem;
+    background-color: var(--primary);
+    margin-left: 0.1rem;
+    border-radius: 2px;
+}
+input:hover, textarea:hover{
+    border: 1px solid #228A5E;
+}
+.description, .item{
+    width: 30%;
+    height: 1rem;
+}
+.quantity{
+    width: 20%;
+    height: 1rem;
+}
+aside{
+    position: absolute;
+    right: 6rem;
+    top: 4rem;
+    width: 20%;
+    height: 35%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px rgba(77, 83, 78, 0.25);
+} 
+aside img{
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+}
+
+.previewbtn{
+    text-align: end;
+    margin-inline: 6rem;
+}
+.previewbtn .cancelbtn{
+    display: none;
+}
+.previewbtn button{
+    padding: 0.9rem 2.7rem;
+    background-color: var(--primary);
+    color: #fff;
+    border:  none;
+    border-radius: 5px;
+}
+.previewbtn #storebtn{
+    background-color: #fff;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
+.previewbtn button:hover{
+    background-color: #30604b;
+}

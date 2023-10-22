@@ -29,7 +29,7 @@
                       <li><a class="dropdown-item" href="#">Consultation</a></li>
                       <li><a class="dropdown-item" href="#">Medication</a></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Store</a></li>
+                      <li><a class="dropdown-item" href="#" class="store">Store</a></li>
                     </ul>
                   </li>
                   <li class="nav-item">
@@ -68,11 +68,11 @@
                     <i class="fa-solid fa-robot"></i>
                     <p>Ask Ziko!</p>
                 </div>
-                <div class="clickable_opt_child">
+                <div class="clickable_opt_child" id="subsribeUser">
                     <i class="fa-solid fa-calendar-days"></i>
                     <p>Subscription Plans</p>
                 </div>
-                <div class="clickable_opt_child">
+                <div class="clickable_opt_child store">
                     <i class="fa-solid fa-message"></i>
                     <p>Store</p>
                 </div>
@@ -90,7 +90,7 @@
                         <option value="s_service">Select Services</option>
                         <option value="s_service" class="book_consultbtn">Book a consultation</option>
                         <option value="s_service">Medication purchase</option>
-                        <option value="s_service">Hardware Store</option>
+                        <option value="s_service" class="store">Hardware Store</option>
                     </select>
                 </div>
                 <div class="service_select_bottom">
@@ -106,14 +106,23 @@
                         <p>Medical Profession</p>
                         <select name="med_prof" id="med_prof">
                             <option value="mProf">Medical Profession</option>
+                            <option value="mProf">Medical Doctor</option>
+                            <option value="mProf">Phermacist</option>
+                            <option value="mProf">Nurses</option>
+                            <option value="mProf">Nutritionist/Dietician</option>
+                            <option value="mProf">Medical Lab Scientist</option>
                         </select>
                     </div>
                     <div>
                         <p>Cunsultation Type</p>
                         <select name="consult_typ" id="consult_typ">
                             <option value="Consult_typ">Consultation Type</option>
+                            <option value="Consult_typ">Audio</option>
+                            <option value="Consult_typ">Video</option>
+                            <option value="Consult_typ">Chat</option>
                         </select>
                     </div>
+                    <button class="btn btn-success px-4 mt-4 mb-1 book_consultbtn" type="submit">Search</button>
                 </div>
             </div>
           </div>
@@ -153,7 +162,7 @@
                       </svg>
                     <h2>Medication Services</h2>
                     <p>If our healthcare provider has prescribed medication for your condition, you can easily purchase it through our platform. Just click the 'Medications' button, and our secure system will guide you through the process. You can also use the Search tool to buy from our partner pharmacy stores, or find pharmacy stores close to you. This feature also enables you to set reminders for medication refill.</p>
-                    <h4>Access Medication Services <span><a href="#">Here</a></span></h4>
+                    <h4>Access Medication Services <span><a href="#" class="store">Here</a></span></h4>
                 </div>
                 <div class="img_div">
                     <img src="../assets/med_service.jpeg" alt="">
@@ -318,8 +327,36 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
     <script>
-        let book_consult = document.querySelector('.book_consultbtn')
-        let user_edit = document.querySelector('.user_edit')
+
+        // redirect to subsscription page 
+            let storeElements = document.querySelectorAll('.store')
+            console.log(storeElements)
+            storeElements.forEach(element => {
+                element.addEventListener('click', () => {
+                    window.location.href = 'hardwareStore.html';
+                });
+            });
+
+
+        // redirect to subsscription page 
+
+    const subsribeUser = document.querySelector('#subsribeUser')
+    console.log(subsribeUser)
+
+    subsribeUser.addEventListener('click', (e) => {
+        console.log('clicked me')
+        window.location.href = 'subscription.html'
+    })
+        
+        // Retrieve the authToken from localStorage
+        const authToken = localStorage.getItem("authToken");
+
+if (authToken) {
+    // You can use the authToken here
+    console.log("Token in localStorage: " + authToken);
+
+    const book_consult = document.querySelector('.book_consultbtn')
+        const user_edit = document.querySelector('.user_edit')
         // console.log(user_edit)
 
         // this function directs you to user_profile page
@@ -338,6 +375,14 @@
 
             window.location.href = redirectUrl;
         } )
+
+    // Perform actions that require the authToken
+
+} else {
+    // Handle cases where the authToken is not as expected
+    console.error("Invalid or missing authToken");
+    window.location.href = "log_in.html";
+}
     </script>
 </body>
 </html>

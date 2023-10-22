@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/pSuccess.css">
+</head>
+<body>
+    <main>
+        <aside id="successuser">
+            <div class="successmessage">
+                <div class="success_tick">
+                    <img src="../assets/tick_icon.svg" alt="wrong icon">
+                </div>
+                <h2>Payment Successful</h2>
+                <p>Thank you for subscribing to our services.</p>
+                <button type="submit" id="back">Back to Home</button>
+            </div>
+        </aside>
+    </main>
+</body>
+<script>
+    let btn = document.querySelector('#back')
+    btn.addEventListener('click', () => {
+        window.location.href = 'patient_home_pg.html'
+    })
+</script>
+</html>

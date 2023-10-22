@@ -20,9 +20,9 @@
         <section>
             <form action="" method="post" class="sign_up_form" id="registrationForm">
                 <div class="header_div">
-                    <h1><img src="../assets/logo.svg" alt="u&doc logo">U&DOC<h1>
-                            <h5>Your health, Our Priority.</h5>
-                            <p><strong>Create an account to get started</strong></p>
+                    <img src="../assets/u_and_doc_logo.png" alt="u&doc logo">
+                    <h5>Your health, Our Priority.</h5>
+                    <p><strong>Create an account to get started</strong></p>
                 </div>
                 <div>
                     <div name="user_fullname" id="user_fullname">
@@ -42,7 +42,7 @@
                 <div class="sign_up_div">
                     <input type="checkbox" name="accept_terms" required><span>I have read and accepted the U&Doc</span> <a
                         href="./terms.html">Terms of Use</a> and <a href="./privacy_policy.html" class="red_text">Privacy Policy.</a>
-                    <button type="" class="sign_up_btn">Sign Up</button>
+                    <button type="submit" class="sign_up_btn">Sign Up</button>
                     <div id="inline_parent_p">
                         <hr>
                         <p id="inline_p">or</p>
@@ -60,11 +60,20 @@
                     <a href=""><a href="./medical_personel_registration.html" id="requiremnt">See Requirements</a></span>
                 </p>
             </div>
+            <div id="successuser">
+                <div class="successmessage">
+                    <div class="success_tick">
+                        <img src="../assets/tick_icon.svg" alt="wrong icon">
+                    </div>
+                    <p>Signup Successful</p>
+                    <button type="submit" id="loginbtn">Log In</button>
+                </div>
+            </div>
         </section>
     </main>
-    <!-- <script src="../js/password_pop_ups.js"></script> -->
+    <script src="../js/password_pop_ups.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script src="../js/index.js"></script>
+    <!-- <script src="../js/index.js"></script> -->
     <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
@@ -92,7 +101,7 @@
 
 
   const signInButton = document.querySelector('#google_auth_btn')
-  console.log(signInButton);
+//   console.log(signInButton);
 
   const userSignIn = async() => {
     signInWithPopup(auth, provider)
@@ -107,50 +116,12 @@
         const errorMessage = error.message
     })
   }
-
-
   const userSignOut = async() => {
     signOut(auth).then(() => {
         alert("You have signed out successfully!");
     }).catch((error) => {})
   }
-
-
-  signInButton.addEventListener('click', userSignIn);
-        
-
-//   user signup authentication
-
-// script.js
-
-document.addEventListener('DOMContentLoaded', function () {
-    const registrationForm = document.getElementById('registrationForm');
-
-    registrationForm.addEventListener('submit', function (e) {
-        e.preventDefault(); // Prevent the default form submission behavior
-
-        // Get form data
-        const formData = new FormData(registrationForm);
-
-        // Define the URL of your backend API endpoint
-        const apiUrl = 'https://u-and-doc.onrender.com/api/user/signup';
-
-        // Send a POST request to the backend
-        fetch(apiUrl, {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Handle the response from the backend (e.g., display a success message)
-            console.log('Registration successful:', data);
-        })
-        .catch(error => {
-            console.error('Error registering user:', error);
-        });
-    });
-});
-
+  signInButton.addEventListener('click', userSignIn);   
       </script>
 </body>
 </html>

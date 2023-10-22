@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In</title>
     <link rel="stylesheet" href="../css/log_in.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <main>
         <section class="boder_right log_in_hero-section">
@@ -14,63 +18,73 @@
         <section>
             <form action="" method="get" class="login_form" id="login_form">
                 <div class="header_div">
-                    <h1><img src="../assets/logo.svg" alt="u&doc logo">U&DOC<h1>
+                    <img src="../assets/u_and_doc_logo.png" alt="u&doc logo">
                     <h5>Welcome!</h5>
                     <p><strong>Login to your account</strong></p>
                 </div>
                 <div>
                     <select name="user_categories" id="user_category" class="input">
                         <option value="user_category">Select User Category</option>
-                        <option value="patient">Regular User</option>
+                        <option value="Patient">Regular User</option>
                         <option value="medical personnel">Medical Professional</option>
                     </select>
-                    <input type="text" name="email" id="email_no" placeholder="Email Address or Phone number" class="input" required>
+                    <input type="text" name="email" id="email_no" placeholder="Email Address or Phone number"
+                        class="input" required>
                     <input type="password" name="password" id="password" placeholder="Password" class="input" required>
                     <p id="password_reset">Forgot your password? <a href="./reset_password.html">Reset Password</a></p>
                 </div>
                 <div class="log_in_div">
-                    <input type="checkbox" name="accept_terms" ><span>I have read and accepted the U&Doc</span> <a href="./terms.html" class="red_text">Terms of Use</a> and <a href="./privacy_policy.html" class="red_text">Privacy Policy.</a>
+                    <input type="checkbox" name="accept_terms"><span>I have read and accepted the U&Doc</span> <a
+                        href="./terms.html" class="red_text">Terms of Use</a> and <a href="./privacy_policy.html"
+                        class="red_text">Privacy Policy.</a>
                     <button type="submit" class="login_btn">Log In</button>
                     <div id="inline_parent_p">
                         <hr>
                         <p id="inline_p">or</p>
                     </div>
-                    <button type="submit" id="google_auth_btn">
+                    <button type="" id="google_auth_btn">
                         <img src="../assets/icons_google.svg" alt="Google logo" style="width: 2rem;">
                         <span id="auth_span"><strong id="auth_span_text">Login with Google</strong></span>
                     </button>
                     <p>Dont have an account? <a href="./sign_up.html" id="sign_up"><strong>Sign Up</strong></a></p>
                 </div>
             </form>
+            <aside id="invaliduser">
+                <div class="invalidusermessage">
+                    <div class="error_X">
+                        <img src="../assets/Mask group.svg" alt="wrong icon">
+                    </div>
+                    <p>Incorrect Username or Password</p>
+                    <button type="submit" id="loginbtn">Log In</button>
+                </div>
+            </aside>
         </section>
     </main>
-    <script src="../js/password_pop_ups.js"></script>
-    <!-- <script src="https://apis.google.com/js/platform.js" async defer></script>
-                <script src="../js/index.js"></script> -->
+    <!-- <script type="module" src="../js/index.js"></script> -->
     <script type="module">
         //  this function redirects you to user profile page
-        let login_btn = document.querySelector('.login_btn')
-        console.log(login_btn)
-        let patient = document.querySelector('#user_category')
-        console.log(patient.value)
+        // let login_btn = document.querySelector('.login_btn')
+        // console.log(login_btn)
+        // let patient = document.querySelector('#user_category')
+        // console.log(patient.value)
 
 
-        login_btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const selectedValue = patient.value;
+        // login_btn.addEventListener('click', (e) => {
+        //     e.preventDefault();
+        //     const selectedValue = patient.value;
 
-            if (selectedValue === "patient") {
-                const redirectUrl = 'patient_home_pg.html';
-                window.location.href = redirectUrl;
-            } else if (selectedValue === "medical personnel") {
-                const redirectUrl = 'med_home_pg.html';
-                window.location.href = redirectUrl;
-            } else {
-                alert("Please select a user category");
-            }
-        });
+        //     if (selectedValue === "patient") {
+        //         const redirectUrl = 'patient_home_pg.html';
+        //         window.location.href = redirectUrl;
+        //     } else if (selectedValue === "medical personnel") {
+        //         const redirectUrl = 'med_home_pg.html';
+        //         window.location.href = redirectUrl;
+        //     } else {
+        //         alert("Please select a user category");
+        //     }
+        // });
 
-       // Import the functions you need from the SDKs you need
+        // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
         import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 
@@ -113,7 +127,6 @@
                 })
         }
 
-
         const userSignOut = async () => {
             signOut(auth).then(() => {
                 alert("You have logged out successfully!");
@@ -121,6 +134,83 @@
         }
         logInButton.addEventListener('click', userSignIn);
 
-    </script>
+        // login authentication
+
+        const loginform = document.querySelector("#login_form")
+        console.log(loginform)
+
+        loginform.addEventListener("submit", function (e) {
+            e.preventDefault(); // Prevent the default form submission
+
+            // Access specific form inputs by ID
+            const role = document.getElementById("user_category").value;
+            const email = document.getElementById("email_no").value;
+            const password = document.getElementById("password").value;
+
+            // Create an object with the input values
+            const data = {
+                role,
+                email,
+                password, 
+            };
+            fetch("https://u-and-doc.onrender.com/api/user/login", {
+                method: "POST", // You may need to change the method to POST, depending on your API
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            })
+                .then((response) => response.json())
+                .then(data => {
+                    console.log(data)
+                    const authToken = data.data.token; // Extract the token from the response
+                    const userinfo = data.data.user; // Extract the user from the response
+
+
+                    // Store the token securely (e.g., in localStorage or a secure HTTP-only cookie)
+                    // console.log(authToken)
+                    localStorage.setItem("authToken", authToken); // Store the token in localStorage
+                    localStorage.setItem("userinfo", JSON.stringify(userinfo)); // Store the token in localStorage
+
+                            // localStorage.setItem("authToken", token);
+
+                        // Print the token in the console
+                        console.log("Token in localStorage: " + localStorage.getItem("authToken"));
+                        console.log("userinfo is: ", JSON.parse(localStorage.getItem("userinfo")));
+
+                        // Redirect to the patient home page on condition
+
+                        if (authToken) {
+                            window.location.href = "patient_home_pg.html";
+                        }
+
+                    // if (response.ok) {
+                    //     // Handle a successful response here
+                    //     console.log("Login successful");
+
+                    // } else {
+                    //     // Handle errors here
+                    //     console.error("Login failed");
+
+                    //     const invalidusermessage = document.querySelector('.invalidusermessage')
+                    //     const loginbtn = document.querySelector('#loginbtn')
+
+                    //     invalidusermessage.style.display = 'block'
+                    //     loginform.style.display = 'none'
+
+                    //     loginbtn.addEventListener('click', (e) => {
+                    //         invalidusermessage.style.display = 'none'
+                    //         loginform.style.display = 'flex'
+                    //     })
+                    // }
+
+                })
+                .catch((error) => {
+                    // Handle network errors here
+                    console.error("Network error:", error);
+                });
+        });
+</script>
 </body>
+
 </html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/hardwareStore.css">
+</head>
+
+<body>
+    <section id="item_details">
+        <h3>Item Details</h3>
+        <div>
+            <h3>Item</h3>
+            <h3>Quantity</h3>
+            <h3>Description</h3>
+        </div>
+        <div class="items">
+            <span class="item"></span>
+            <span class="quantity"></span>
+            <span class="description"></span>
+        </div>
+        <div class="items">
+            <span class="item"></span>
+            <span class="quantity"></span>
+            <span class="description"></span>
+        </div>
+        <div class="items">
+            <span class="item"></span>
+            <span class="quantity"></span>
+            <span class="description"></span>
+        </div>
+        <div class="items">
+            <span class="item"></span>
+            <span class="quantity"></span>
+            <span class="description"></span>
+        </div>
+        <div class="items">
+            <span class="item"></span>
+            <span class="quantity"></span>
+            <span class="description"></span>
+        </div>
+    </section>
+    <section id="delivery_details">
+        <div id="address">
+            <h3>Delivery Detalis</h3>
+            <div>
+                <span>Line 1</span>
+                <span id="line1"></span>
+            </div>
+            <div>
+                <span>Line 2</label>
+                <span id="line2"></span>
+            </div>
+            <div>
+                <span>City/Town</span>
+                <span id="city_town"></span>
+            </div>
+            <div>
+                <span>Country</span>
+                <span id="country"></span>
+            </div>
+        </div>
+        <div class="textarea">
+            <h5>Note:</h5>
+            <textarea name="description" id="description" cols="30" rows="10"></textarea>
+        </div>
+    </section>
+    <aside>
+        <img id="preview-image" src="../assets/picupload.png" alt="product description">
+        <input type="file" id="file-input" style="border: none; width: 30%; display: block; margin-inline: auto;">
+        <a href="#" id="crop-button">Upload Product Picture</a>
+    </aside>
+    <div class="previewbtn">
+        <a href="#" id="cancelbtn">Cancel order</a>
+        <button id="storebtn">Back to Store</button>
+        <button id="invoicebtn">Get Invoice</button>
+    </div>
+</body>
+<script>
+         function displayData() {
+        const storedData = JSON.parse(localStorage.getItem('orderData'));
+
+        if (storedData) {
+            const itemsDivs = document.querySelectorAll('.items');
+
+            storedData.items.forEach((data, index) => {
+                if (index < itemsDivs.length) {
+                    // Update the div elements with the stored data
+                    itemsDivs[index].querySelector('.item').textContent = data.item;
+                    itemsDivs[index].querySelector('.quantity').textContent = data.quantity;
+                    itemsDivs[index].querySelector('.description').textContent = data.description;
+                }
+            });
+            // Display the delivery details in the corresponding spans
+            document.getElementById('line1').textContent = storedData.delivery.line1;
+            document.getElementById('line2').textContent = storedData.delivery.line2;
+            document.getElementById('city_town').textContent = storedData.delivery.city_town;
+            document.getElementById('country').textContent = storedData.delivery.country;
+            document.getElementById('description').textContent = storedData.delivery.description;
+
+            const imageElement = document.getElementById('preview-image'); // Add an ID to your image element
+            imageElement.src = storedData.image;
+        }
+    }
+
+    // Call the displayData function when the page loads
+    displayData();
+
+    // back to hardware store page
+
+    const storebtn = document.querySelector('#storebtn')
+
+    storebtn.addEventListener('click', () => {
+        window.location.href = 'hardwareStore.html'
+    })
+
+    const invoicebtn = document.querySelector('#invoicebtn')
+    invoicebtn.addEventListener('click', () => {
+        const cancelbtn = document.querySelector('#cancelbtn')
+        
+    })
+    
+</script>
+
+</html>

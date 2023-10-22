@@ -36,6 +36,9 @@ p{
     padding: 0.7rem;
     border: none;
 }
+#notification_icons i:last-child:hover{
+    cursor: pointer;
+}
 .hero_div{
     height: 85vh;
     background-color: var(--primary);
