@@ -12,27 +12,27 @@
         <section id="item_details">
             <h3>Item Details</h3>
             <div class="items">
-                <input type="text" name="" placeholderItem="" class="item">
+                <input type="text" name="" placeholder="Item" class="item">
                 <input type="number" name="" placeholder="Quantity" class="quantity">
                 <input type="text" name="" placeholder="Description" class="description">
             </div>
             <div class="items">
-                <input type="text" name="" placeholderItem="" class="item">
+                <input type="text" name="" placeholder="Item" class="item">
                 <input type="number" name="" placeholder="Quantity" class="quantity">
                 <input type="text" name="" placeholder="Description" class="description">
             </div>
             <div class="items">
-                <input type="text" name="" placeholderItem="" class="item">
+                <input type="text" name="" placeholder="Item" class="item">
                 <input type="number" name="" placeholder="Quantity" class="quantity">
                 <input type="text" name="" placeholder="Description" class="description">
             </div>
             <div class="items">
-                <input type="text" name="" placeholderItem="" class="item">
+                <input type="text" name="" placeholder="Item" class="item">
                 <input type="number" name="" placeholder="Quantity" class="quantity">
                 <input type="text" name="" placeholder="Description" class="description">
             </div>
             <div class="items">
-                <input type="text" name="" placeholderItem="" class="item">
+                <input type="text" name="" placeholder="Item" class="item">
                 <input type="number" name="" placeholder="Quantity" class="quantity">
                 <input type="text" name="" placeholder="Description" class="description">
             </div>
@@ -69,7 +69,7 @@
             <a href="#" id="crop-button">Upload Product Picture</a>
         </aside>
         <div class="previewbtn">
-            <button>Preview Order</button>
+            <button id="previewbtn">Preview Order</button>
         </div>
     </main>
 </body>
@@ -177,8 +177,9 @@ function storeData() {
         image: croppedImageData,
     };
 
-    // Save the data to local storage
-    localStorage.setItem('orderData', JSON.stringify(orderDetails));
+    // Save the data to session storage
+    // localStorage.setItem('orderData', JSON.stringify(orderDetails));
+    sessionStorage.setItem('orderData', JSON.stringify(orderDetails));
 
     // Log the data to the console
     console.log('Data stored in local storage:');

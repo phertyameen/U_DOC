@@ -17,7 +17,7 @@
   <header>
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid nav_div px-5">
-        <img src="../assets/u_and_doc_logo.png" alt="">
+        <a href="../html/patient_home_pg.html"><img src="../assets/u_and_doc_logo.png" alt=""></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
           aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -25,7 +25,7 @@
         <div class="collapse navbar-collapse" id="navbarScroll">
           <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">How it works</a>
+              <a class="nav-link active" aria-current="page" href="../html/patient_home_pg.html">How it works</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -75,12 +75,12 @@
               </div>
               <div class="service_select_bottom">
                 <div>
-                  <p>Date</p>
-                  <input type="date" name="date" id="date" placeholder="Date" id="dateId">
-                </div>
-                <div>
                   <p>Time</p>
                   <input type="time" name="time" id="time" value="00:00" id="timeId">
+                </div>
+                <div>
+                  <p>Date</p>
+                  <input type="date" name="date" id="date" placeholder="Date" id="dateId">
                 </div>
                 <div>
                   <p>Medical Profession</p>
@@ -96,34 +96,34 @@
                 <div>
                   <p>Cunsultation Type</p>
                   <select name="consult_typ" id="consult_typ">
-                    <option value="Consult_typ">Consultation Type</option>
-                    <option value="Consult_typ">Audio</option>
-                    <option value="Consult_typ">Video</option>
-                    <option value="Consult_typ">Chat</option>
+                    <option value="consultation type">Consultation Type</option>
+                    <option value="Audio">Audio</option>
+                    <option value="Video">Video</option>
+                    <option value="Chat">Chat</option>
                   </select>
                 </div>
               </div>
               <div name="mProf" id="alldoc">
-                <p value="allergistImmunologist">Allergist/Immunologist</p>
-                <p value="cardiologist">Cardiologist</p>
-                <p value="generalPractitioner">General Practitioner</p>
-                <p value="dentist">Dentist</p>
+                <p>Allergist/Immunologist</p>
+                <p>Cardiologist</p>
+                <p>General Practitioner</p>
+                <p>Dentist</p>
   
-                <p value="dermatologist">Dermatologist</p>
-                <p value="emergency Physician">Emergency Physician</p>
-                <p value="endocrinologist">Endocrinologist</p>
-                <p value="ent">ENT</p>
-                <p value="gastroenterologist">Gastroenterologist</p>
-                <p value="geriatrcian">Geriatrcian</p>
-                <p value="gynaecologist">Gynaecologist</p>
-                <p value="infectious Diseases">Infectious Diseases </p>
-                <p value="nephrologist">Nephrologist</p>
-                <p value="opthalmologist">Opthalmologist</p>
-                <p value="orthopedist">Orthopedist</p>
-                <p value="paediatrician">Paediatrician</p>
-                <p value="psychiatrist">Psychiatrist</p>
-                <p value="rheumatologist">Rheumatologist</p>
-                <p value="urologist">Urologist</p>
+                <p>Dermatologist</p>
+                <p>Emergency Physician</p>
+                <p>Endocrinologist</p>
+                <p>ENT</p>
+                <p>Gastroenterologist</p>
+                <p>Geriatrcian</p>
+                <p>Gynaecologist</p>
+                <p>Infectious Diseases </p>
+                <p>Nephrologist</p>
+                <p>Opthalmologist</p>
+                <p>Orthopedist</p>
+                <p>Paediatrician</p>
+                <p>Psychiatrist</p>
+                <p>Rheumatologist</p>
+                <p>Urologist</p>
               </div>
             </div>
           </div>
@@ -380,7 +380,7 @@
 
         window.location.href = redirectUrl;
 
-        localStorage.setItem('selectedValue', selectedValue);
+        localStorage.setItem('selectedValue', medProfSelect.value);
       localStorage.setItem('consultType', consultTypeSelect.value);
       localStorage.setItem('time', timeInput.value);
       localStorage.setItem('date', dateInput.value);

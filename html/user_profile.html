@@ -18,7 +18,7 @@
   <header>
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid nav_div px-5">
-        <img src="../assets/u_and_doc_logo.png" alt="U and Doc logo">
+        <a href="../html/patient_home_pg.html"><img src="../assets/u_and_doc_logo.png" alt="U and Doc logo"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
           aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -26,7 +26,7 @@
         <div class="collapse navbar-collapse" id="navbarScroll">
           <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#how_it_works">How it works</a>
+              <a class="nav-link active" aria-current="page" href="../html/patient_home_pg.html">How it works</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#our_service" role="button" data-bs-toggle="dropdown"
@@ -63,6 +63,88 @@
         </div>
       </div>
     </nav>
+    <div class="profiledropdowndiv">
+      <div class="dropdownchilddiv">
+        <div class="dropdownchilddiv1">
+          <img src="../assets/avater.png" alt="user nav image">
+        <h4><span id="fullname">fname + lastname</span><br>Platinum Member</h4>
+        </div> <hr>
+      </div>
+      <div class="dropdownchilddiv">
+        <div class="dropdownsubchild" id="myConsultation">
+          <i class="fa-solid fa-user-doctor"></i>
+          <div>
+            <h4>My Consultations</h4>
+            <p>Manage your bookings</p>
+          </div>
+        </div>
+        <div class="dropdownsubchild">
+          <i class="fa-solid fa-prescription-bottle-medical"></i>
+          <div>
+            <h4>My Medications</h4>
+            <p>Manage your medication needs</p>
+          </div>
+        </div>
+        <div class="dropdownsubchild" id="chatWithDoc">
+          <i class="fa-solid fa-user-group"></i>
+          <div>
+            <h4>My Medical Contacts</h4>
+            <p>Manage your contacts</p>
+          </div>
+        </div>
+        <div class="dropdownsubchild">
+          <i class="fa-solid fa-folder-plus"></i>
+          <div>
+            <h4>My Medical Library</h4>
+            <p>Manage your medical records and reports</p>
+          </div>
+        </div>
+        <div class="dropdownsubchild">
+          <i class="fa-solid fa-calendar-days"></i>
+          <div>
+            <h4>My Subscriptions</h4>
+            <p>Manage your subscriptions</p>
+          </div>
+        </div>
+        <div class="dropdownsubchild">
+          <i class="fa-solid fa-message"></i>
+          <div>
+            <h4>My Store</h4>
+            <p>Manage your purchases</p>
+          </div>
+        </div>
+      </div><hr>
+      <div class="dropdownchilddiv">
+        <div class="footerdropdownsubchild">
+          <div>
+            <i class="fa-solid fa-heart"></i>
+            <h4>Whishlist</h4>
+          </div>
+          <i class="fa-solid fa-right-long"></i>
+        </div>
+        <div class="footerdropdownsubchild">
+          <div>
+            <i class="fa-solid fa-gear"></i>
+            <h4>Settings</h4>
+          </div>
+          <i class="fa-solid fa-right-long"></i>
+        </div>
+        <div class="footerdropdownsubchild">
+          <div>
+            <i class="fa-solid fa-circle-question"></i>
+            <h4>Support</h4>
+          </div>
+          <i class="fa-solid fa-right-long"></i>
+        </div>
+        <div class="footerdropdownsubchild">
+          <div>
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <h4>Logout</h4>
+          </div>
+          <i class="fa-solid fa-right-long"></i>
+        </div>
+      </div>
+    </div>
   </header>
   <main class="parent_main">
     <div class="profile_div">
@@ -89,6 +171,41 @@
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.min.js"></script>
   <script>
+    // JavaScript for fetching and updating user details
+
+    const authToken = localStorage.getItem("authToken"); // Retrieve the stored authentication token
+    const userInfo = JSON.parse(localStorage.getItem("userinfo")); // Retrieve the stored user info
+    // const consultType = localStorage.getItem('consultType');
+    console.log(userInfo)
+    
+    // const authToken = localStorage.getItem("authToken"); 
+
+    if (authToken) {
+      fetch(`https://u-and-doc.onrender.com/api/user/profile/${userInfo._id}`, {
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${authToken}`,
+        },
+      })
+        .then((response) => response.json())
+        .then((userData) => {
+
+          console.log(userData)
+          // Update the placeholders with user data
+          document.getElementById("namePlaceholder").textContent = userData.data.firstName;
+          document.getElementById("usernamePlaceholder").textContent = userData.data.username;
+          document.getElementById("emailPlaceholder").textContent = userData.data.email;
+          document.getElementById("fullname").textContent = userData.data.firstName + ' ' + userData.data.lastName;
+          // You can update other placeholders with additional user data if needed
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } else {
+      console.error("Authentication token not found. Please ensure the user is logged in.");
+      console.error("Invalid or missing authToken");
+      window.location.href = "log_in.html";
+    }
 
     // this functions are set to redirect the user profile buttons
     let p_details = document.querySelector('#p_details')
@@ -182,42 +299,24 @@
 
     // adding an event listner to display a dropddown
     dropdown.addEventListener('click', (e) => {
+      const profiledropdowndiv = document.querySelector('.profiledropdowndiv')
 
+      profiledropdowndiv.style.display = 'flex'
     })
 
-    // JavaScript for fetching and updating user details
+    // navigating to user consultation page
+    const myConsultation = document.querySelector('#myConsultation')
+    myConsultation.addEventListener('click', () => {
+      window.location.href = 'userConsultation.html'
+    })
 
-    const authToken = localStorage.getItem("authToken"); // Retrieve the stored authentication token
-    const userInfo = JSON.parse(localStorage.getItem("userinfo")); // Retrieve the stored user info
-    // const consultType = localStorage.getItem('consultType');
-    console.log(userInfo)
+    // navigating to chat with healthcare professional page
+
+    const chatWithDoc = document.querySelector('#chatWithDoc')
+    chatWithDoc.addEventListener('click', () => {
+      window.location.href = 'chatWithDoc.html'
+    })
     
-    // const authToken = localStorage.getItem("authToken"); 
-
-    if (authToken) {
-      fetch(`https://u-and-doc.onrender.com/api/user/profile/${userInfo._id}`, {
-        method: "GET",
-        headers: {
-          "Authorization": `Bearer ${authToken}`,
-        },
-      })
-        .then((response) => response.json())
-        .then((userData) => {
-
-          console.log(userData)
-          // Update the placeholders with user data
-          document.getElementById("namePlaceholder").textContent = userData.data.firstName;
-          document.getElementById("usernamePlaceholder").textContent = userData.data.username;
-          document.getElementById("emailPlaceholder").textContent = userData.data.email;
-          // You can update other placeholders with additional user data if needed
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    } else {
-      console.error("Authentication token not found. Please ensure the user is logged in.");
-    }
-
     // profile picture update from API
     // --form 'profilePicture=@"jrBAFdMeQ/pexels-photo-167964.webp"'
 

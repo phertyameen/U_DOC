@@ -53,11 +53,11 @@ p{
     gap: 4rem;
 }
 .parent_main div{
-    width: 40%;
+    width: 50%;
 }
 #img_container{
     width: 40%;
-    height: 35vh;
+    height: 39vh;
     border-radius: 50%;
     margin-block: 1rem;
     box-shadow: 2px 2px 2px 2px rgba(50, 60, 55, 0.25);
@@ -177,7 +177,7 @@ body{
     margin-inline: 3rem;
     padding-bottom: 0.5rem;
 }
-#switch_sect span:first-child{
+#switch_sect span:last-child{
     color: var(--secondary);
     border-bottom: 0.5rem solid #898989;
 }
@@ -277,6 +277,56 @@ progress{
     background-color: #898989;
     border-radius: 50%;
     padding: 0 1rem;
+}
+
+/* user profile dropdown */
+.profiledropdowndiv{
+    width: 35%;
+    padding: 2rem;
+    display: none;
+    flex-direction: column;
+    background-color: #f3fffa;
+    gap: 2.5rem;
+    margin-left: 65%;
+    border-radius: 10px;
+    position: absolute;
+}
+.dropdownchilddiv1 img{
+    width: 30%;
+}
+.dropdownchilddiv1{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.dropdownchilddiv{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.dropdownsubchild{
+    display: flex;
+    gap: 1rem;
+    justify-content: start;
+}
+.dropdownsubchild i{
+    color: var(--primary);
+    font-size: 2.5rem;
+    width: 20%;
+}
+/* user profile footer div */
+.footerdropdownsubchild{
+    display: flex;
+    justify-content: space-between;
+}
+.footerdropdownsubchild div{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+.footerdropdownsubchild div i{
+    color: var(--primary);
+    font-size: 1.5rem;
 }
 
 
@@ -445,4 +495,5 @@ footer .child_p{
         flex-direction: column;
         justify-content: center;
     }
+}
 }

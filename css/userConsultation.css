@@ -290,6 +290,9 @@ nav {
 #history__consultations__link {
     color: var(--tertiary-color);
 }
+.nav__consultations__link:hover{
+    cursor: pointer;
+}
 
 #history__consultations__link::before {
     content: '1';

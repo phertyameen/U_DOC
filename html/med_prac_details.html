@@ -14,7 +14,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid nav_div px-5">
-          <img src="../assets/u_and_doc_logo.png" alt="U and Doc logo">
+          <a href="../html/patient_home_pg.html"><img src="../assets/u_and_doc_logo.png" alt="U and Doc logo"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
             aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -51,7 +51,7 @@
                 <i class="fa-solid fa-bell"></i>
               </div>
               <div id="nav_profile_img">
-                <img id="nav-profile-image" src="../assets/Fatima_Aminu_Baba.JPG" alt="user nav profile image">
+                <img id="nav-profile-image" src="../assets/avater.png" alt="user nav profile image">
               </div>
               <i class="fa-solid fa-caret-down"></i>
               <button class="btn btn-success px-2 py-2" type="submit">Book a Consultation</button>
@@ -332,5 +332,11 @@ console.log('Date:', date);
     window.location.href = "log_in.html";
 }
 
+// redirecting to user profile page
+const profileimg = document.querySelector('#nav-profile-image')
+
+profileimg.addEventListener('click', () => {
+  window.location.href = 'user_profile.html'
+})
 </script>
 </html>

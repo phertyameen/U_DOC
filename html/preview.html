@@ -4,83 +4,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Preview page</title>
     <link rel="stylesheet" href="../css/hardwareStore.css">
 </head>
 
 <body>
-    <section id="item_details">
-        <h3>Item Details</h3>
-        <div>
-            <h3>Item</h3>
-            <h3>Quantity</h3>
-            <h3>Description</h3>
-        </div>
-        <div class="items">
-            <span class="item"></span>
-            <span class="quantity"></span>
-            <span class="description"></span>
-        </div>
-        <div class="items">
-            <span class="item"></span>
-            <span class="quantity"></span>
-            <span class="description"></span>
-        </div>
-        <div class="items">
-            <span class="item"></span>
-            <span class="quantity"></span>
-            <span class="description"></span>
-        </div>
-        <div class="items">
-            <span class="item"></span>
-            <span class="quantity"></span>
-            <span class="description"></span>
-        </div>
-        <div class="items">
-            <span class="item"></span>
-            <span class="quantity"></span>
-            <span class="description"></span>
-        </div>
-    </section>
-    <section id="delivery_details">
-        <div id="address">
-            <h3>Delivery Detalis</h3>
+    <main>
+        <section id="item_details">
+            <h3>Item Details</h3>
             <div>
-                <span>Line 1</span>
-                <span id="line1"></span>
+                <h3>Item</h3>
+                <h3>Quantity</h3>
+                <h3>Description</h3>
             </div>
-            <div>
-                <span>Line 2</label>
-                <span id="line2"></span>
+            <div class="items">
+                <span class="item"></span>
+                <span class="quantity"></span>
+                <span class="description"></span>
             </div>
-            <div>
-                <span>City/Town</span>
-                <span id="city_town"></span>
+            <div class="items">
+                <span class="item"></span>
+                <span class="quantity"></span>
+                <span class="description"></span>
             </div>
+            <div class="items">
+                <span class="item"></span>
+                <span class="quantity"></span>
+                <span class="description"></span>
+            </div>
+            <div class="items">
+                <span class="item"></span>
+                <span class="quantity"></span>
+                <span class="description"></span>
+            </div>
+            <div class="items">
+                <span class="item"></span>
+                <span class="quantity"></span>
+                <span class="description"></span>
+            </div>
+        </section>
+        <section id="delivery_details">
+            <div id="address">
+                <h3>Delivery Detalis</h3>
+                <div>
+                    <span>Contact no. 1</span>
+                    <span id="line1"></span>
+                </div>
+                <div>
+                    <span>Contact No. 2</label>
+                        <span id="line2"></span>
+                </div>
+                <div>
+                    <span>City/Town</span>
+                    <span id="city_town"></span>
+                </div>
+                <div>
+                    <span>Country</span>
+                    <span id="country"></span>
+                </div>
+            </div>
+            <div class="textarea">
+                <h5>Note:</h5>
+                <textarea name="description" id="description" cols="30" rows="10" placeholder="No. 9,jalingo streat opposite central bank."></textarea>
+            </div>
+        </section>
+        <aside>
+            <img id="preview-image" src="../assets/picupload.png" alt="product description">
+            <input type="file" id="file-input" style="border: none; width: 30%; display: block; margin-inline: auto;">
+            <a href="#" id="crop-button">Upload Product Picture</a>
+        </aside>
+        <div class="previewbtn">
+            <button id="storebtn">Back to Store</button>
+            <button id="invoiceBtn">Get Invoice</button>
+        </div>
+        <div class="invoicebtn">
+            <button id="invoiceNobtn">
+                <span id="allinvoices">Invoice No: </span>
+                <a href="./invoive1.html">2345H</a>
+            </button>
             <div>
-                <span>Country</span>
-                <span id="country"></span>
+                <a href="#" id="cancelbtn">Cancel order</a>
+                <button id="edit">Edit</button>
+                <button id="payment">Proceed to Payment</button>
             </div>
         </div>
-        <div class="textarea">
-            <h5>Note:</h5>
-            <textarea name="description" id="description" cols="30" rows="10"></textarea>
+    </main>
+    <div id="successuser">
+        <div class="successmessage">
+            <div class="success_tick">
+                <img src="../assets/tick_icon.svg" alt="wrong icon">
+            </div>
+            <p>Your Order has been sent and 5 of our partner Stores will send their invoices for you to choose from. 
+                Check your registered email or the pending orders section on the shop platform for the invoices.
+                If no invoice is sent to you in the next 20mins,  kindly Contact U&DOC Admin. Thank you.</p>
+            <button type="submit" id="backtostorebtn">Back to Store</button>
         </div>
-    </section>
-    <aside>
-        <img id="preview-image" src="../assets/picupload.png" alt="product description">
-        <input type="file" id="file-input" style="border: none; width: 30%; display: block; margin-inline: auto;">
-        <a href="#" id="crop-button">Upload Product Picture</a>
-    </aside>
-    <div class="previewbtn">
-        <a href="#" id="cancelbtn">Cancel order</a>
-        <button id="storebtn">Back to Store</button>
-        <button id="invoicebtn">Get Invoice</button>
     </div>
 </body>
 <script>
-         function displayData() {
-        const storedData = JSON.parse(localStorage.getItem('orderData'));
+    function displayData() {
+        // const storedData = JSON.parse(localStorage.getItem('orderData'));
+        const storedData = JSON.parse(sessionStorage.getItem('orderData'));
 
         if (storedData) {
             const itemsDivs = document.querySelectorAll('.items');
@@ -109,19 +133,49 @@
     displayData();
 
     // back to hardware store page
-
     const storebtn = document.querySelector('#storebtn')
 
     storebtn.addEventListener('click', () => {
         window.location.href = 'hardwareStore.html'
     })
 
-    const invoicebtn = document.querySelector('#invoicebtn')
-    invoicebtn.addEventListener('click', () => {
-        const cancelbtn = document.querySelector('#cancelbtn')
-        
+    // redirect to store payment page
+    const payment = document.querySelector('#payment')
+    payment.addEventListener('click', () => {
+        window.location.href = 'storePayment.html'
     })
-    
+
+    // making success message button and main a universal variable
+    const successmessage = document.querySelector('.successmessage')
+    const main = document.querySelector('main')
+
+    const invoiceBtn = document.querySelector('#invoiceBtn')
+    invoiceBtn.addEventListener('click', () => {
+
+        successmessage.style.display = 'block'
+        main.style.backgroundColor = 'rgba(0,0,0,0.8)'
+    })
+
+    // display invoice
+    const backtostorebtn = document.querySelector('#backtostorebtn')
+    backtostorebtn.addEventListener('click', () => {
+
+        const invoicebtn = document.querySelector('.invoicebtn')
+        const previewbtn = document.querySelector('.previewbtn')
+
+        successmessage.style.display = 'none'
+        invoicebtn.style.display = 'flex'
+        previewbtn.style.display = 'none'
+        main.style.backgroundColor = '#fff'
+    })
+
+
+    // go to all invoices
+    const allinvoices = document.querySelector('#allinvoices')
+    allinvoices.addEventListener('click', () => {
+        window.location.href = 'allinvoice.html'
+    })
+
 </script>
 
 </html>

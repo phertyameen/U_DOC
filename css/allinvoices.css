@@ -1,0 +1,118 @@
+*{
+    --text_colour: #121212;
+    --primary: #228A5E;
+    --secondary: #D90000;
+    --gray: #898989;
+    --roboto: 'Roboto Condensed', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.invoicebody{
+    padding: 2rem;
+    font-family: var(--roboto);
+}
+#allinvoiceheader{
+    height: 20%;
+}
+#backarrow{
+    text-decoration: none;
+    color: #121212;
+}
+.invoicemain{
+    width: 50%;
+    margin-inline: auto;
+    margin-block: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+.invoicemain h2{
+    color: var(--primary);
+    font-size: 2.3rem;
+}
+.Invoicemaindiv{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.invoicesubdiv p{
+    display: flex;
+    justify-content: space-between;
+    font-size: 2rem;
+}
+.invoicesubdiv p span{
+    width: 50%;
+}
+.invoicesubdiv p span{
+    display: flex;
+    gap: 1rem;
+}
+span a{
+    color: var(--secondary);
+    text-decoration: none;
+}
+
+/* invoive 1 styling */
+.invoicebody .invoice1header nav{
+    display: flex;
+    justify-content: space-between;
+}
+.invoice_order_no{
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+}
+.date{
+    padding-left: 4rem;
+}
+#selectinvoicebtn, #downloadinvoice{
+    background-color: #fff;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    border-radius: 5px;
+    padding: 0.9rem 2.7rem;
+}
+
+.invoice_order_no{
+    display: flex;
+    justify-content: space-between;
+}
+table{
+    margin-block: 2rem;
+    margin-inline: auto;
+    width: 80%;
+    height: 40vh;
+    padding: 1.5rem;
+    background-color: #D9D9D9;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-collapse: collapse;
+    border-spacing: 0.5rem;
+}
+tr td, tr th{
+    border: 1px solid #fff;
+    padding-left: 1rem;
+}
+.footerdiv{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    margin-inline: auto;
+}
+.footerdiv div{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+strong{
+    margin-left: 1rem;
+}
+#gTotal{
+    padding: 0.9rem 2.7rem;
+    background-color: var(--primary);
+    color: #fff;
+    border:  none;
+    border-radius: 5px;
+    font-size: 1rem;
+}

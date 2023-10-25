@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chats</title>
+    <link rel="stylesheet" href="../css/patient_home_pg.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid nav_div px-5">
+              <img src="../assets/u_and_doc_logo.png" alt="">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="../html/patient_home_pg.html">Home</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#our_service" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Our Services
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Consultation</a></li>
+                      <li><a class="dropdown-item" href="#">Medication</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#" class="store">Store</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">About Us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">Resources</a>
+                  </li>
+                </ul>
+                <div class="d-flex gap-3">
+                    <div id="notification_icons">
+                        <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-bell"></i>
+                        <i class="fa-solid fa-user-large user_edit"></i>
+                    </div>
+                  <button class="btn btn-success px-2 py-2 book_consultbtn" type="submit" id="book_consult">Book a Consultation</button>
+                  <button class="btn btn-danger px-2 py-2 book_consultbtn" type="submit" id="emergencybtn">Emergency</button>
+                </div>
+              </div>
+            </div>
+          </nav>
+    </header>
+    <main class="chdmain">
+        <section class="chdmainsec">
+            <div class="cwdmainsecdiv">
+                <i class="fa-solid fa-gear"></i>
+                <input type="search" placeholder="Search messages">
+            </div>
+            <div class="chatsdiv">
+                <div class="chatdiv">
+                    <div class="docprofilediv">
+                        <img src="../assets/Doctor1.png" alt="" id="docprofile2">
+                    </div>
+                    <div class="chatdivtext">
+                        <h5>Aisha Haruna <span class="specialisation">Paediatrician</span></h5>
+                        <p>Hello Martha. I have a proposal for your ...</p>
+                        <p class="chatdivtextfooter"><span class="realtimedate">6 September, 2023.</span> <span class="realtime">3:34 P.M</span></p>
+                    </div>
+                    <div class="statusbtnA">
+                        <button>Active</button>
+                    </div>
+                </div>
+                <div class="chatdiv">
+                    <div class="docprofilediv">
+                        <img src="../assets/Doctor2.png" alt="" id="docprofile2">
+                    </div>
+                    <div class="chatdivtext">
+                        <h5>Danielle Ken <span class="specialisation">Nutritionist</span></h5>
+                        <p> I have sent the precription. But you have to</p>
+                        <p class="chatdivtextfooter"><span class="realtimedate">6 September, 2023.</span> <span class="realtime">3:34 P.M</span></p>
+                    </div>
+                    <div class="statusbtnA">
+                        <button>Active</button>
+                    </div>
+                </div>
+                <div class="chatdiv">
+                    <div class="docprofilediv">
+                        <img src="../assets/Doctor3.png" alt="" id="docprofile3">
+                    </div>
+                    <div class="chatdivtext">
+                        <h5>Kenneth Rillo <span class="specialisation">Lab Scientist</span></h5>
+                        <p>Hello Martha. I have a proposal for your ...</p>
+                        <p class="chatdivtextfooter"><span class="realtimedate">6 June, 2023.</span> <span class="realtime">3:34 P.M</span></p>
+                    </div>
+                    <div class="statusbtnI">
+                        <button>Renew</button>
+                    </div>
+                </div>
+                <div class="chatdiv">
+                    <div class="docprofilediv">
+                        <img src="../assets/Doctor4.png" alt="" id="docprofile4">
+                    </div>
+                    <div class="chatdivtext">
+                        <h5>Kwame Nana <span class="specialisation">Nurse</span></h5>
+                        <p>I am not sure of what to do regarding baby</p>
+                        <p class="chatdivtextfooter"><span class="realtimedate">6 May, 2023.</span> <span class="realtime">3:34 P.M</span></p>
+                    </div>
+                    <div class="statusbtnI">
+                        <button>Renew</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="chdmainsec2"></section>
+    </main>
+    <footer>
+        <div class="container-fluid parent_footer_div">
+            <div class="child_footer_div">
+                <img src="../assets/footer_logo.png" alt="U and Doc logo">
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-phone footer_p"></i>
+                        <a href="#">+234 123 345 6789</a>
+                    </li>
+                    <li>
+                        <i class="fa-brands fa-instagram footer_p"></i>
+                        <a href="#">U&DOC_ng</a>
+                    </li>
+                    <li>
+                        <i class="fa-brands fa-facebook footer_p"></i>
+                        <a href="#">U&DOC_ng</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="child_footer_div">
+                <ul>
+                    <li><h4 class="footer_p">Company</h4></li>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">FAQs</a></li>
+                    <li><a href="">Contact Us</a></li>
+                    <li><a href="">Blog</a></li>
+                </ul>
+            </div>
+            <div class="child_footer_div">
+                <ul>
+                    <li><h4 class="footer_p">Product</h4></li>
+                    <li><a href="">How it works</a></li>
+                    <li><a href="">Blogs</a></li>
+                    <li><a href="">Tutorials</a></li>
+                </ul>
+            </div>
+            <div class="child_footer_div">
+                <ul>
+                    <li><h4 class="footer_p">Legal</h4></li>
+                    <li><a href="">Terms of use</a></li>
+                    <li><a href="">Privacy Policy</a></li>
+                    <li><a href="">Sharing settings</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer_form_div">
+            <form action="post">
+                <p class="footer_p">Subscribe to our Newsletter</p>
+                <input type="text" placeholder="Email Address">
+                <div id="footer_btn_div">
+                    <button type="submit" class="footer_p">Submit</button>
+                </div>
+            </form>
+        </div>
+        <p class="footer_p child_p">
+            <span>U&DOC Ltd 2023 &copy; All rights reserved.</span>
+            <span>
+                <i class="fa-solid fa-globe" style="color: black;"></i>
+                English
+            </span>
+        </p>
+    </footer>
+</body>
+</html>

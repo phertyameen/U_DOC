@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice1 page</title>
+    <link rel="stylesheet" href="../css/allinvoices.css">
+</head>
+<body class="invoicebody">
+    <header class="invoice1header">
+        <nav>
+            <img src="../assets/u_and_doc_logo.png" alt="logo">
+            <div>
+                <button id="selectinvoicebtn">Choose</button>
+                <button id="downloadinvoice">Download</button>
+            </div>
+        </nav>
+        <div>
+            <p class="invoice_order_no">
+                <span>Order Number: <a href="#">2341</a></span>
+                <span>Invoice No: <a href="#">2345H</a></span>
+            </p>
+            <p class="date">
+                <span>Date: </span>
+                <span>10/9/2023</span>
+            </p>
+        </div>
+    </header>
+    <main>
+        <table>
+            <tr>
+                <th>S/N</th>
+                <th>Item Description</th>
+                <th>Quantity</th>
+                <th>Price (N)</th>
+                <th>Total</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Blood Pressure Monitor</td>
+                <td>1</td>
+                <td>50,000.00</td>
+                <td>50,000.00</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Glucometer</td>
+                <td>1</td>
+                <td>50,000.00</td>
+                <td>50,000.00</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>BFirst Aid Box</td>
+                <td>1</td>
+                <td>45,000.00</td>
+                <td>45,000.00</td>
+            </tr>
+        </table>
+        <div class="footerdiv">
+            <div id="authsec">
+                <p>Attended by: <strong>Joseph Paul</strong></p>
+                <span class="sigSpan">
+                    <img src="../assets/signature.svg" alt="authorised signature">
+                    <hr>
+                    <small>Authorized Signature</small>
+                </span>
+            </div>
+            <div>
+                <p>Sub Total: <strong>N145,000.00</strong></p>
+                <p>Tax: <strong>N2500.00</strong></p>
+                <p>Delivery: <strong>N2500.00</strong></p>
+                <p>Discount: <strong>N00.00</strong></p>
+                <button id="gTotal">Grand Total:  N150,000.00 </button>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    const download = document.querySelector('#downloadinvoice')
+    const choose = document.querySelector('#selectinvoicebtn')
+    const authsec = document.querySelector('#authsec')
+
+    download.style.display = 'none'
+    choose.addEventListener('click', () => {
+        choose.style.display = 'none'
+        authsec.style.display = 'none'
+        download.style.display = 'block'
+    })
+
+    // downloading the receipt
+    download.addEventListener('click', () => {
+        // // Get the entire HTML content
+        // const htmlContent = document.documentElement.outerHTML;
+
+        // // Create a Blob with the HTML content
+        // const blob = new Blob([htmlContent], { type: 'text/html' });
+
+        // // Create a temporary URL and create a link to trigger the download
+        // const url = URL.createObjectURL(blob);
+        // const a = document.createElement('a');
+        // a.href = url;
+        // a.download = 'invoice.html';
+        // a.style.display = 'none';
+
+        // // Add the link to the document and trigger the download
+        // document.body.appendChild(a);
+        // a.click();
+
+        //  // Clean up
+        //  document.body.removeChild(a);
+        // URL.revokeObjectURL(url);
+
+        download.style.display = 'none'
+        let htmlElement = document.documentElement.outerHTML;
+
+        html2pdf().from(htmlElement).save('invoice.pdf');
+
+    })
+
+</script>
+</html>

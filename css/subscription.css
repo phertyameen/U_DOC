@@ -148,3 +148,18 @@ form #paystack-pay{
     background-color: #165c3f;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.25)
 }
+
+/* store payment styling */
+#advertdiv{
+    color: #F3F5F8;
+    background-color: var(--secondary);
+    height: 2rem;
+    /* padding-inline: 1rem; */
+    padding-block: 0.4rem;
+    word-spacing: 0.5rem;
+    letter-spacing: 0.1rem;
+    font-size: 1.3rem;
+}
+#advertdiv p a{
+    color: #F3F5F8;
+}
