@@ -580,8 +580,12 @@ footer .child_p{
     width: 40%;
     padding: 1rem;
     box-shadow: 2px 2px 2px 2px rgba(48, 50, 50, 0.27);
+    height: 100%;
+    overflow-y: auto;
 }
-.chdmainsec2{
+.chdmainsec2, .chdmainsec3, .chdmainsec4{
+    display: none;
+    font-size: 0.85rem;
     width: 60%;
     background:rgba(11, 104, 176, 0.07);
 }
@@ -618,6 +622,9 @@ footer .child_p{
     text-align: start;
     align-items: center;
     padding-inline: 0.2rem;
+}
+.chatdiv:hover{
+    cursor: pointer;
 }
 .chatdiv .docprofilediv{
     width: 20%;
@@ -660,4 +667,141 @@ footer .child_p{
     border: none;
     color: #F3F9F6;
     background-color: var(--primary);
+}
+.headerchdmainsec2{
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 2rem;
+    background-color: #fff;
+    box-shadow:  2px 2px 2px 2px rgba(48, 50, 50, 0.27);
+}
+.chdmainsec2scroll{
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.headerchild{
+    display: flex;
+    width: 60%;
+    font-weight: 600;
+}
+.headerchdmainsec2 .headerchild img{
+    height: 90%;
+    width: 28%;
+    border-radius: 50%;
+}
+.headerchildtext{
+    margin-left: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 0.7rem;
+}
+.headerchildtext p{
+    text-align: start;
+    font-size: 0.85rem;
+}
+.iconssection{
+    display: flex;
+    color: #898989;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+}
+.presentdate{
+    width: 20%;
+    margin-inline: auto;
+    margin-block: 2rem;
+    border-radius: 15px;
+    padding: 0.2rem 1rem;
+    box-shadow:  1px 1px 1px 1px rgba(66, 69, 69, 0.2);
+}
+.medprofchatdiv {
+    margin: 1rem 2rem;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    width: 60%;
+    height: max-content;
+    padding: 0.5rem;
+    background-color: #fff;
+    box-shadow:  1px 1px 1px 1px rgba(66, 69, 69, 0.2);
+}
+.patientchativ {
+    margin: 0.9rem 2.5rem;
+    margin-left: 50%;
+    transform: translateX(-22%);
+    color: #fff;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    width: 60%;
+    height: max-content;
+    padding: 0.5rem;
+    background-color: var(--primary);
+    box-shadow:  1px 1px 1px 1px rgba(66, 69, 69, 0.2);
+}
+.patientchativaddon {
+    margin: 0.9rem 2.5rem;
+    margin-left: 50%;
+    transform: translateX(-22%);
+    width: 60%;
+    height: max-content;
+    padding: 0.5rem;
+    background-color: inherit;
+}
+.patientchativaddon audio{
+    box-shadow:  1px 1px 1px 1px rgba(66, 69, 69, 0.2);
+    border-radius: 20px;
+    display: none;
+}
+.patientchativaddon #fileInput{
+    display: none;
+}
+.patientchativ,p .medprofchatdiv, p{
+    text-align: start;
+}
+.chatmsgdiv{
+    position: relative;
+    width: 70%;
+    margin-inline: auto;
+}
+#chatmsgdivinput{
+    border-radius: 15px;
+    padding: 1rem 2.5rem;
+    width: 90%;
+    right: 50%;
+    border: 1px solid var(--primary);
+    outline: none;
+    font-size: 1.3rem;
+    box-shadow: 2px 2px 2px 2px rgba(66, 69, 69, 0.2);
+}
+.inputplaceholder{
+    position: absolute;
+    display: flex;
+    gap: 1.1rem;
+    top: 18%;
+    left: 75%;
+    transform: translateY(50%);
+    font-size: 1.8rem;
+    color: #898989;
+}
+.send{
+    display: inline;
+    font-size: 2rem;
+    padding: 1.5rem 0.5rem;
+    font-size: 1.8rem;
+    color: #555454;
+}
+.preventchat p{
+    width: 55%;
+    text-align: center;
+    margin-inline: auto;
+}
+.sub_div_child img{
+    width: 100%;
+    height: 100%;
+    border-radius: 1.5rem;
 }
